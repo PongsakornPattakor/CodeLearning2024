@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game table</title>
+    <style>
+        div{
+            border: 2px solid brown
+        }
+        span{
+            border: 2px solid rgb(0, 255, 81)
+        }
+    </style>
+</head>
+<body>
+    <h2>รายการสินค้า</h2>
+    <table border="1" cellpadding="10" cellspacing="5">
+        <thead bgcolor="pink"> <!--bgcolor = attibute สี background-->
+            <td>รหัสสินค้า</td>
+            <td>ภาพสินค้า</td>
+            <td>ชื่อสินค้า</td>
+            <td>ราคา</td>
+            <td>ดำเนินการ</td>
+        </thead>
+        <tbody>
+            <tr><!--row 1-->
+                <td>G001</td>
+                <td>
+                    <img width= "150"src="https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png" alt="">
+                </td>
+                <td>God of War : Ragnarok</td>
+                <td>650 ฿</td>
+                <td>
+                    <a href="#">สั่งซื้อ</a><!--การใส่ # หมายถึงยังไม่กำหนด link-->
+                </td>
+            </tr>
+            <tr><!--row 2-->
+                <td>G002</td>
+                <td>
+                    <img width= "150"src="https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/QeJWAaLcYNOpCv7yCVZZEOY5.jpg" alt="">
+                </td>
+                <td>Spiderman remastered</td>
+                <td>950 ฿</td>
+                <td>
+                    <a href="#">สั่งซื้อ</a><!--การใส่ # หมายถึงยังไม่กำหนด link-->
+                </td>
+            </tr>
+            <tr><!--row 3-->
+                <td>G003</td>
+                <td>
+                    <img width= "150"src="https://image.api.playstation.com/vulcan/img/rnd/202105/1714/WHeOu95nW2SZQy6H5IKgE2Bg.png" alt="">
+                </td>
+                <td>Star Wars:Jedi Fallen Order</td>
+                <td>324 ฿</td>
+                <td>
+                    <a href="#">สั่งซื้อ</a><!--การใส่ # หมายถึงยังไม่กำหนด link-->
+                </td>
+            </tr>
+        </tbody>
+        <tfoot bgcolor="pink" align="center">
+            <tr>
+                <td colspan="5" ><b>รวมคำสั่งซื้อ = </b></td>
+            </tr>
+        </tfoot>
+    </table>
+    <span style="color:rgb(201, 50, 50)">
+        <h3>Studio</h3>
+        <ol>
+            <li>Santa Monica</li>
+            <li>Insomaniac</li>
+            <li>Lucas</li>
+        </ol>
+    </span>
+    <div style="color: rgb(146, 19, 231);">
+        <h3>แนวเกม</h3>
+        <ol>
+            <li>RPG one-way direction</li>
+            <li>RPG Open-world</li>
+            <li>RPG Hack&Slash</li>
+        </ol>
+    </div>
+</body>
+</html>

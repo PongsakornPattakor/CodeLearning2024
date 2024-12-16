@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input group</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container" style="margin: 20px 0;">
+        <!-- Text field -->
+        <div class="my-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ชื่อ</span>
+            </div>
+            <input type="text" placeholder="ป้อนชื่อแบบไม่ต้องระบุคำนำหน้า" class="form-control">
+        </div>
+        <div class="my-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">นามสกุล</span>
+            </div>
+            <input type="text" placeholder="ป้อนนามสกุล" class="form-control">
+        </div>
+        <div class="my-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">เบอร์โทร</span>
+            </div>
+            <input type="tel" placeholder="xxx-xxx-xxxx" class="form-control">
+        </div>
+
+        <!-- Multiple Text field -->
+        <div class="my-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">ชื่อและนามสกุล</span>
+            </div>
+            <input type="text" placeholder="ป้อนชื่อพร้อมคำนำหนา" class="form-control">
+            <input type="text" placeholder="ป้อนนามสกุล" class="form-control">
+        </div>
+
+        <!-- Checkbox -->
+        <div class="my-3 input-group">
+            <div class="input-group-text">
+                <input type="checkbox">
+            </div>
+            <input type="text" class="form-control">
+        </div>
+
+        <!-- Radio -->
+        <div class="my-3 input-group">
+            <div class="input-group-text">
+                <input type="radio">
+            </div>
+            <input type="text" class="form-control">
+        </div>
+
+        <!-- Search button -->
+        <div class="my-3 input-group">
+            <input type="text" placeholder="ค้นหาข้อมูล" class="form-control">
+            <div class="input-group-prepend">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse & Accordion</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css-custom/cssCustom.css">
+    <script src="js/bootstrap.js"></script>
+
+    <style>
+        .accordion-button:not(.collapsed) .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-2">
+        <!-- JavaScript widget -->
+
+        <!-- Collapse -->
+        <button class="btn btn-success" data-bs-toggle="collapse"
+            data-bs-target="#collapse-content">ดูข้อมูลเพิ่มเติม</button>
+        <!-- Content -->
+        <div id="collapse-content" class="collapse my-2">
+            <div class="card">
+                <div class="card-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit officia vitae tenetur beatae facilis
+                        esse.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Accordion -->
+        <div id="accordion-basic" class="accordion">
+            <div class="accordion-item">
+                <!-- หัวข้อหรือเมนู -->
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse"
+                        data-bs-target="#content1">ท่องเที่ยว</button>
+                </h2>
+                <!-- Content -->
+                <div id="content1" class="collapse">
+                    <div class="accordion-body">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa, ipsam!</p>
+                    </div>
+                </div>
+                <!-- หัวข้อหรือเมนู 2-->
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#content2">อาหาร</button>
+                </h2>
+                <!-- Content -->
+                <div id="content2" class="collapse">
+                    <div class="accordion-body">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur mollitia quas corporis
+                            illum?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

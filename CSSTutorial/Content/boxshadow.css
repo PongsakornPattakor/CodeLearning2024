@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Chonburi&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    font-family: "Chakra Petch";
+}
+img{
+    width: 200px;
+    box-shadow: 5px 5px 5px 3px red,-5px -5px 5px 3px black;
+    position:relative;
+    top:100px;
+    left: 50px;
+}
+div{
+    font-size: 2rem;
+    font-weight: 1.3rem;
+    text-align: center;
+    align-content: center;
+    width: 200px;
+    height: 200px;
+    border: solid 3px green;
+    background-color: lightgreen;
+    box-shadow: 10px 10px 15px 5px lightblue;
+    text-shadow: 5px 5px 2px blue;
+}

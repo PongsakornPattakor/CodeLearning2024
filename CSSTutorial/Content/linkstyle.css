@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Chonburi&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: "Chakra Petch";
+  font-size: 30px;
+}
+:any-link {
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+}
+a:visited {
+  color: pink;
+}
+a:hover { /*ต้องเขียนหลัง a:link , a:visited*/
+  color: red;
+  background-color: rgb(225, 207, 175);
+  border: solid 2px rgb(217, 141, 0);
+  border-radius: 5px;
+  text-decoration: underline;
+  padding: 3px;
+}
+a:active { /*ต้องเขียนหลัง a:hover*/
+  color: green;
+  text-decoration: underline;
+}

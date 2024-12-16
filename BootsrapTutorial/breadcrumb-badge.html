@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreadCrumb & Badge</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- สร้าง BreadCrumb -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">สินค้า</li>
+            <li class="breadcrumb-item">เฟอร์นิเจอร์</li>
+            <li class="breadcrumb-item">โซฟา</li>
+        </ol><br>
+
+        <!-- BreadCrumb แบบ Link -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">สินค้า</a></li>
+            <li class="breadcrumb-item"><a href="">เฟอร์นิเจอร์</a></li>
+            <li class="breadcrumb-item"><a href="">โซฟา</a></li>
+        </ol><br>
+
+        <!-- Badge -->
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between">สินค้าทั้งหมด
+                <span class="badge bg-primary mx-2">45</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">เฟอร์นิเจอร์
+                <span class="badge bg-warning mx-2">15</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">เครื่องใช้ไฟฟ้า
+                <span class="badge bg-dark mx-2">15</span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

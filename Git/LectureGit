@@ -1,0 +1,118 @@
+[Version Control]
+    Version Control หรือ Source Control หมายถึง เครื่องมือช่วยติดตามการเปลี่ยนแปลงของ Source Code โดยการเก็บประวัติการเปลี่ยนแปลงลงฐานข้อมูลชนิดพิเศษ
+    การบันทึกประวัติอย่างต่อเนื่อง ช่วยทำให้ dev สามารถย้อนเวลาไปในช่วงเวลาต่างๆ โดยเปรียบเทียบโค้ดเก่ากับโค้ดใหม่คล้ายๆกับการ undo / redo
+
+    สาเหตุที่ต้องใช้ Version Control
+        1. สำรองโค้ดที่เขียนไว้ได้ โดยสามารถใช้โค้ดเก่า ระหว่างพัฒนาโค้ดใหม่ไปด้วยได้
+        2. สามารถย้อนกลับไปใช้โค้ดเวอร์ชั่นเก่าได้
+        3. สามารถพัฒนาร่วมกันเป็นทีมได้
+        4. สามารถระบุเวลที่มีการแก้ไขโค้ดได้
+
+    วิวัฒนาการ Version Control
+        1. Copy file & folder
+            - เป็นการบันทึกเอกสารและแยกออกเป็นหลายๆไฟล์ แล้วตั้งชื่อไฟล์ตามเวอร์ชั่น แต่เปลืองพื้นที่จัดเก็บข้อมูล
+        2. Patch
+            - เลี่ยงความสิ้นเปลืองพื้นที่จัดเก็บ โดยการเปรียบเทียบไฟล์เก่า และไฟล์ใหม่ แล้วเกิดเป็นไฟล์ Patch
+        3. Local Version Control System
+            - แก้ปัญหา Patch หายจนประกอบ Source Code กลับไม่ได้ โดยการจัดเก็บเวอร์ชั่นของ Source Code ลงฐานข้อมูล เรียก "Check-in" และเรียกคืน Source Code จากฐานข้อมูลว่า "Check-out" 
+            - มีบันทึกช่วยจำ (Log message)
+            - การ Check-out จากผู้ใช้หลายๆคนจะทำให้เกิดปัญหาขึ้นได้ 
+        4. Centralized Version Control System (CVCS)
+            - Version Control System แบบรวมศูนย์  เพื่อแก้ปัญหาที่มีผู้ใช้งานหลายคน โดยการเก็บข้อมูลบน Server
+            - ถ้า Server ล่ม ผู้ใช้จะไม่สามารถ Check-in ได้ รวมทั้งต้องทำงานแบบ online เท่านั้น 
+        5. Distributed Version Control System (DVCS)
+            - แก้ปัญหาการทำงานแบบรวมศูนย์ โดยการ clone ฐานข้อมูลทั้งหมด (เรียก Database ที่เก็บเวอร์ชั่นของโค้ดว่า Repository) โดยเมื่อ clone มาแล้ว สามารถ Check-in และ Check-out บน Local Host ก่อนจะ Push ขึ้น Server ในภายหลัง
+
+[Git]
+    Git เป็น DVCS ใช้สำหรับติดตาม ตรวจสอบการแก้ไขไฟล์ หรือ Source Code พร้อมทั้งระบุเวลา และผู้แก้ไข ทำให้ dev สามารถติดตามการเปลี่ยนแปลงโค้ด
+    Git เหมาะกับงานแบบเดี่ยวหรือแบบทีม เพราะสามารถเรียกดูได้
+
+    หลักการพื้นฐาน :
+        - สามารถคัดลอกเวอร์ชั่นของ Source Code มาเก็บไว้ในเครื่องก่อนได้
+        - dev สามารถพัฒนาได้ในรูปแบบ offline และ Check-in ลงในฐานข้อมูลภายในเครื่องตัวเอง (Local Repository)
+        - เมื่อแก้ไขเสร็จแล้วจึงค่อยสั่ง Sync กับ Server ด้วยคำสั่ง Pull / Merge / Push
+
+    ทำไมต้องใช้ Git : 
+        1. ติดตามเวอร์ชั่นของโค้ดได้
+        2. เครื่องมืออำนวยความสะดวกในการทำงานเป็นทีม โดย Git สามารถเก็บบันทึกการเปลี่ยนแปลง Source Code เวอร์ชั่นล่าสุด
+
+[GitHub]
+    Web Server ที่ให้บริการในการฝากไฟล์ Git ทำให้สามารถใช้ Git ร่วมกับคืนอื่นได้
+
+[คำสั่งใน Bash]
+    1. git --version : เช็คเวอร์ชั่น
+    2. git config --global user.email : ตั้งค่า email
+
+[วงจรการทำงานของ Git]
+    1. Working Directory (untracked) : โปรเจ็คที่ยังไม่ถูกตรวจสอบไฟล์
+        - ใช้คำสั่ง : git init
+    2. Working Directory (tracked) : ใช้ Git มาตรวจสอบไฟล์ ในโฟลเดอร์
+        - ใช้คำสั่ง : git add
+    3. Staging Area : พื้นที่ที่มีการเก็บ version ว่ามีการแก้ไข
+        - ใช้คำสั่ง : git commit
+    4. Local Repository : เก็บข้อมูลการแก้ไขไว้ที่เครื่องของ dev
+        - ใช้คำสั่ง : git push
+    5. Remote Repository : นำการแก้ไขทุก version ที่อยู่ในเครื่องผู้พัฒนาขึ้น Server
+
+[Git command เบื้องต้น]
+    1. สร้าง Local Git Repository
+        - git init
+    2. เพิ่มไฟล์เข้าไปใน Staging Area 
+        - git add <file_name> => ระบุไฟล์ เช่น git add index.php
+        - git add *html => เพิ่มหลายๆไฟล์ โดยระบุ สกุลไฟล์
+        - git add . => เพิ่มทุกไฟล์ที่อยู่ภายใต้ Directory ปัจจุบัน
+    3. ลบไฟล์ หรือโฟลเดอร์ออกจาก Git Repository
+        - git rm -r --cached . => ลบทั้งหมด
+        - git rm -r --cached <file_name> => ระบุไฟล์ 
+    4. ตรวจสอบสถานะ (Status) การเปลี่ยนแปลงของ Repository บนเครื่องของเรา
+        - git status 
+        - สถานะการติดตาม 
+            1. Modified : มีการแก้ไขไฟล์แล้ว แต่ยังไม่เริ่มจัดเก็บลง Repository
+            2. Staged : ทำเครื่องหมายไฟล์ที่ถูกแก้ไขเพื่อบันทึกใน version ถัดไป
+            3. Committed : ข้อมูลถูกบันทึกลงใน Repository เรียบร้อยแล้ว
+    5. การเก็บข้อมูลการแก้ไขไว้ที่เครื่อง
+        - git commit -m "Log Message" : เมื่อ commit แล้ว จะได้ SHA-1 Hash เป็น Commit ID (รหัสประจำเวอร์ชั่น)
+            m : พารามิเตอร์สำหรับใส่ข้อความช่วยจำ เพื่ออธิบายการ commit แต่ละเวอร์ชั่น
+    6. ดูประวัติการ Commit โดยจะแสดง Commit ID , Message , ชื่อผู้เขียน , email , เวลาที่ commit
+        - git log
+        - git log --oneline => แสดงแต่ละ log เหลือบรรทัดเดียว
+        - git log --graph => แสดงเป็นเส้น Branch ให้ดูง่ายขึ้น
+    7. เปรียบเทียบ version (diff) ใช้สำหรับตรวจสอบและเปรียบเทียบไฟล์โค้ดว่ามีอะไรเปลี่ยนแปลงและแตกต่างไปจากเดิมบ้าง เมื่อเทียบกับ Commit ที่ผ่านมา
+        - git diff <commit_id> => แบบระบุ Commit ID
+        - git diff <commit_id> <commit_id> => เปรียบเทียบระหว่าง 2 Commit
+        - สีสถานะ
+            1. แสดงเครื่องหมาย - และตัวอักษร สีแดง ในบรรทัดเดิมก่อนถูกแก้ไขและถูกลบ
+            2. แสดงเครื่องหมาย + และตัวอักษร สีเขียว และโค้ดใหม่ที่ถูกแก้ไขและเพิ่มใหม่
+    8. ยกเลิกการแก้ไขไฟล์ (Check-out) คำสั่งย้อนกลับไปที่ commit ล่าสุด
+        - git checkout <file_name>
+    9. การย้อน version กลับไปที่สภาพก่อน add ไฟล์เข้า Staging Area
+        - git reset <file_name>
+        - git reset --soft <commit_id> => ใช้เพื่อลบ commit ทั้งหมดที่อยู่หลัง commit_id แล้วนำไฟล์ commit นั้นกลับมายัง Staging Area
+        - git reset --mixed <commit_id> => ใช้เพื่อลบ commit ทั้งหมดที่อยู่หลัง commit_id แล้วนำไฟล์ commit นั้นกลับมายัง Working Directory 
+        - git reset --hard <commit_id> => ใช้เพื่อลบ commit ทั้งหมดที่อยู่หลัง commit_id และทำลายไฟล์ทั้งหมดที่เคยอยู่ใน commit เหล่านั้น
+
+[Git branching]
+    - เป็นการแก้ปัญหา ถ้า Master branch (กิ่งหลัก) มีปัญหา เมื่อทำการ reset commit จะทำให้ไม่ต้องเขียน Feature branch ใหม่
+    1. การแสดงชื่อ branch 
+        - git branch
+    2. การสลับและสร้าง branch
+        - git checkout -b <ชื่อ branch> (ห้ามตั้งชื่อเว้นวรรค)
+    3. การลบ branch 
+        - git branch -d <ชื่อ branch>
+    4. สลับไป branch ที่ต้องการ
+        - git checkout <ชื่อ branch>
+    5. สลับไป branch หลัก
+        - git checkout master
+    6. การรวม branch
+        - git merge <ชื่อ branch>
+    
+[Git push]
+    - เป็นคำสั่งที่ใช้นำโค้ดที่อยู่บนเครื่อง (Local Repository) อัพเดทไปยัง Remote Repository (Server : GitHub)
+    - git push
+    
+[Git pull]
+    - เป็นคำสั่งที่ใช้นำโค้ดที่อยู่บน Remote Repository มาอัพเดทลงบนเครื่อง (Local Repository)
+    - git pull
+
+[Git clone]
+    - git clone

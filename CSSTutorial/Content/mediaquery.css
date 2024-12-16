@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Chonburi&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    font-family: "Anuphan";
+}
+
+body{
+    background-color: rgb(197, 197, 197);
+    text-align: center;
+    padding: 100px;
+}
+h1{
+    display: none;
+}
+
+/*smart phone*/
+@media only screen and (max-width:500px) {
+    body{
+        background-color: red;
+    }
+    #smartphone h1{
+        display: inline-block;
+    }
+}
+/*tablet*/
+@media (min-width:501px) and (max-width:768px){
+    body{
+        background-color: green;
+    }
+    #tablet h1{
+        display: inline-block;
+    }
+}
+/*laptop & desktop*/
+@media (min-width:769px) and (max-width:1200px){
+    body{
+        background-color: bisque;
+    }
+    #desktop h1{
+        display: inline-block;
+    }
+}
+/*TV*/
+@media (min-width:1201px){
+    body{
+        background-color: deeppink;
+    }
+    #widescreen h1{
+        display: inline-block;
+    }
+}
+/*Landscape*/
+@media (max-height:500px){
+    body{
+        background-color: orange;
+    }
+    #landscape h1{
+        display: inline-block;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid horizontal alignment</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css-custom/cssCustom.css">
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .col-item {
+            border: 2px solid black;
+            width: 100px;
+            height: 100px;
+            background: orange;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-info">
+        <div class="row justify-content-center my-2">
+            <div class="col-4 col-item">Center 1</div>
+            <div class="col-4 col-item">Center 2</div>
+            <div class="col-4 col-item">Center 3</div>
+        </div>
+        <div class="row justify-content-start my-2">
+            <div class="col-4 col-item">Start 1</div>
+            <div class="col-4 col-item">Start 2</div>
+            <div class="col-4 col-item">Start 3</div>
+        </div>
+        <div class="row justify-content-end my-2">
+            <div class="col-4 col-item">End 1</div>
+            <div class="col-4 col-item">End 2</div>
+            <div class="col-4 col-item">End 3</div>
+        </div>
+        <div class="row justify-content-around my-2">
+            <div class="col-4 col-item">Around 1</div>
+            <div class="col-4 col-item">Around 2</div>
+            <div class="col-4 col-item">Around 3</div>
+        </div>
+        <div class="row justify-content-between my-2">
+            <div class="col-4 col-item">Between 1</div>
+            <div class="col-4 col-item">Between 2</div>
+            <div class="col-4 col-item">Between 3</div>
+        </div>
+
+    </div>
+</body>
+
+</html>

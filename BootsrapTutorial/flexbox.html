@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex box</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css-custom/cssCustom.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- การสร้าง Flexbox -->
+        <div class="bg-info d-flex">
+            <div class="p-4 bg-warning">Item 1</div>
+            <div class="p-4 bg-warning">Item 2</div>
+            <div class="p-4 bg-warning">Item 3</div>
+        </div><br>
+
+        <!-- กำหนดทิศทาง -->
+        <div class="bg-info d-flex flex-row">
+            <div class="p-4 bg-warning">Item 1</div>
+            <div class="p-4 bg-warning">Item 2</div>
+            <div class="p-4 bg-warning">Item 3</div>
+        </div><br>
+        <div class="bg-info d-flex flex-column">
+            <div class="p-4 bg-warning">Item 1</div>
+            <div class="p-4 bg-warning">Item 2</div>
+            <div class="p-4 bg-warning">Item 3</div>
+        </div><br>
+
+        <!-- Horizontal alignment -->
+        <div class="bg-info d-flex flex-row justify-content-center">
+            <div class="p-4 bg-danger">Item 1</div>
+            <div class="p-4 bg-danger">Item 2</div>
+            <div class="p-4 bg-danger">Item 3</div>
+        </div><br>
+
+        <!-- Vertical alignment -->
+        <div class="bg-info d-flex flex-column align-items-center">
+            <div class="p-4 bg-success">Item 1</div>
+            <div class="p-4 bg-success">Item 2</div>
+            <div class="p-4 bg-success">Item 3</div>
+        </div><br>
+    </div>
+</body>
+
+</html>

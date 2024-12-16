@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply text-red-600;
+  }
+}
+
+@layer components {
+  .menu-button {
+    @apply bg-red-400 text-white rounded-md p-2 m-2;
+  }
+}
+
+@layer utilities {
+  .text-red-500 {
+    color: rgb(90, 255, 57);
+  }
+}

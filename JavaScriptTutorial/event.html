@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Event</title>
+</head>
+
+<body onload="welcome()">
+    <label for="">ชื่อ</label>
+    <input type="text" placeholder="ป้อนชื่อจริง" onfocus="highlight(this)" onblur="unhighlight(this)">
+    <!--this คือการโยน object ทั้งก้อนนี้เข้าไป-->
+    <textarea name="" id="" cols="30" rows="10" onfocus="highlight(this)" onblur="unhighlight(this)"></textarea>
+
+    <label for="">ภาษาคอมพิวเตอร์</label>
+    <select name="" id="menu" onchange="getMenu()">
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+        <option value="SQL">SQL</option>
+    </select>
+    <p id="display"></p>
+
+    <a href="#" onmouseover="highlight(this)" onmouseout="unhighlight(this)">Menu 1</a>
+    <a href="#">Menu 2</a>
+    <script src="event.js"></script>
+</body>
+
+</html>

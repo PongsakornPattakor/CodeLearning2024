@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+
+
+p { /*p ที่อยู่นอก div*/
+    background-color: orange;
+}
+
+/*Descendant selector*/
+div p{ /*เข้าไปใน div แล้วให้ทั้งลูกและหลานของ div ทำงาน*/
+    background-color: red;
+}
+
+/*Child selector */
+div>p{ /*เข้าไปใน div แล้วให้เฉพาะลูกของ div ทำงาน*/
+    background-color: green;
+}
+
+/*Adjacent sibling selector*/
+div + p{ /*ทำงานเฉพาะ p ที่อยู่หลัง div*/
+    background-color: yellow;
+}
+
+/*General sibling selector*/
+div~p{ /*ทำงาน ใน p ทุกตัวที่อยู่หลัง div*/
+    background-color: gray;
+}

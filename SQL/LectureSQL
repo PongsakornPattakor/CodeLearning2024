@@ -1,0 +1,211 @@
+SQL (Structured Query Language) = ภาษามาตรฐานที่ใช้ในการจัดการฐานข้อมูล ใช้กับระบบฐานข้อมูลเชิงสัมพันธ์
+
+DBMS (Database Management System) = โปรแกรมสำหรับการจัดการฐานข้อมูล ช่วยให้ดำเนินการจัดการฐานข้อมูลได้ง่ายขึ้น
+
+Primary key = key ที่ไม่สามารถซ้ำกันได้
+
+NUMERIC = ตัวเลขที่มีทศนิยม 2 ตน.
+
+REAL = ตัวเลขที่มีทศนิยมหลายตำแหน่ง
+
+[คำสั่งใน SQL]
+    1. การแทรกข้อมูล [INSERT]
+        -   INSERT INTO ฐานข้อมูล (fname,lname,... )
+    
+    2. การสอบถามข้อมูล [SELECT]
+        -   SELECT fname,lname,... 
+            FROM ฐานข้อมูล : สอบถามข้อมูลที่ต้องการ
+        -   SELECT * 
+            FROM ฐานข้อมูล : สอบถามข้อมูลทั้งหมด
+        -   SELECT fname,lname,... AS "ชื่อหัวตาราง" 
+            FROM ฐานข้อมูล  : สอบถามข้อมูลที่ต้องการ และตั้งชื่อหัวตารางที่สอบถามมา
+        -   SELECT DISTINCT fname,lname,...
+            FROM ฐานข้อมูล : สอบถามข้อมูลที่ไม่ซ้ำกัน
+    
+    3. การนับจำนวน [COUNT]
+        -   COUNT (*) : นับจำนวนทั้งหมด
+    
+    4. การสอบถามข้อมูลแบบมีเงื่อนไข [WHERE]
+        -   SELECT fname,lname,... 
+            FROM ฐานข้อมูล
+            WHERE fname = "ชื่อที่จะค้นหา"
+        -   SELECT *
+            FROM ฐานข้อมูล
+            WHERE เงื่อนไข 1 (AND/OR/NOT) เงื่อนไข 2 
+        -   SELECT *
+            FROM ฐานข้อมูล
+            WHERE fname,lname,... IS NULL : เช็คค่าว่าง
+    
+    5. เรียงลำดับข้อมูล [ORDER BY]
+        -   SELECT *
+            FROM ฐานข้อมูล
+            ORDER BY fname ASC : เรียงลำดับข้อมูลจาก น้อย -> มาก , พยัญชนะ -> สระ
+            ORDER BY fname DESC : เรียงลำดับข้อมูลจาก มาก -> น้อย , สระ -> พยัญชนะ
+
+    6. จำกัดจำนวนบรรทัด [LIMIT]
+        -   SELECT *
+            FROM ฐานข้อมูล
+            LIMIT จำนวนบรรทัด
+    
+    7. เพิ่มข้อมูลด้วยตารางอื่น [INSERT,SELECT] (ชนิดข้อมูลต้องตรงกัน)
+        -   INSERT INTO ตารางปลายทาง (คอลัมน์ปลายทาง)
+            SELECT คอลัมน์ต้นทาง
+            FROM ตารางต้นทาง
+
+    8. การแก้ไขข้อมูล [UPDATE]
+        -   UPDATE ตาราง
+            SET fname = "ค่าใหม่"
+            WHERE เงื่อนไข : ถ้าไม่กำหนดเงื่อนไข จะเกิดการอัพเดทข้อมูลทั้งหมด
+
+    9. การลบข้อมูล [DELETE]
+        -   DELETE FROM ตาราง
+            WHERE เงื่อนไข : ถ้าไม่กำหนดเงื่อนไข จะลบข้อมูลทั้งหมด
+        
+    10. การเปรียบเทียบส่วนประกอบข้อมูล [LIKE & WILDCARD]
+        -   % : มีค่าเท่ากับ 0 ตัวอักษร ถึง กี่ตัวก็ได้
+            _ : มีค่าเท่ากับตัวอักษร 1 ตัว
+        -   SELECT *
+            FROM ตาราง
+            WHERE fname LIKE 'สม%' : สอบถามข้อมูลที่มีคนชื่อขึ้นต้นด้วย สม และตามหลังด้วยอะไรก็ได้
+            WHERE fname LIKE '%ก%' : สอบถามข้อมูลที่มีคนชื่อขึ้นประกอบด้วย ก
+            WHERE fname LIKE '%พงษ์' : สอบถามข้อมูลที่มีคนชื่อขึ้นต้นด้วยอะไรก็ได้ แต่ลงท้ายด้วย พงษ์
+        -   SELECT *
+            FROM ตาราง
+            WHERE lname LIKE '_00%' : สอบถามข้อมูลที่มีคนเงินเดือน ขึ้นต้นด้วยอะไรก็ได้ แต่ตำแหน่ง 2-3 ต้องเป็น 0
+            WHERE lname LIKE '_5%0' : สอบถามข้อมูลที่มีคนเงินเดือน ขึ้นต้นด้วยอะไรก็ได้ แต่ตำแหน่ง 2 เป็นเลข 5 และลงท้ายด้วย 0
+            WHERE lname LIKE '7_____0' : สอบถามข้อมูลที่มีคนเงินเดือน ขึ้นต้นด้วยเลข 7 แต่ลงท้ายด้วย 0 และทั้งหมดมีแค่ 5 ตัวอักษร
+
+    11. การดำเนินการทางคณิตศาสตร์ 
+        -   SELECT
+            fname AS "ชื่อ"
+            salary AS "เงินเดือน"
+            salary+5000 AS "เงินรวมโบนัส" : สามารถใช้ตัวดำเนินการคณิตได้ (*,/,+,-)
+            salary*12 AS "รายได้ต่อปี" : สามารถใช้ตัวดำเนินการคณิตได้ (*,/,+,-)
+            FROM ตาราง
+            WHERE (salary*12) > 800000
+
+    12. เงื่อนไขที่ใช้แทน OR เยอะๆ [IN , NOT IN]
+        -   SELECT * 
+            FROM ตาราง
+            WHERE address IN ('กรุงเทพ','ภูเก็ต','ระนอง') : สอบถามข้อมูลคนที่อยู่ในจังหวัดนี้
+            WHERE address NOT IN ('กรุงเทพ','ภูเก็ต','ระนอง') : สอบถามข้อมูลคนที่ ไม่ อยู่ในจังหวัดนี้
+    
+    13. เงื่อนไขที่ใช้แทน AND เยอะๆที่กำหนดเป็นช่วง [BETWEEN]
+        -   SELECT *
+            FROM ตาราง
+            WHERE salary BETWEEN 2000 AND 5000 : สอบถามข้อมูลคนที่มีเงินเดือนช่วง 2000-5000
+
+    14. ฟังก์ชั่นทางคณิตศาสตร์
+        -   SELECT
+            COUNT(*) AS "จำนวนลูกค้า" ,
+            MAX(salary) AS "ค่าสูงสุด",
+            MIN(salary) AS "ค่าต่ำสุด",
+            SUM(salary) AS "ค่ารวม",
+            AVG(salary) AS "ค่าเฉลี่ย"
+            FROM ตาราง
+
+    15. กำหนดเงื่อนไขเป็น เคส [CASE WHEN]
+        -   SELECT fname, salary ,
+            (
+            CASE salary 
+            WHEN 100000 THEN 'ผู้บริหาร' 
+            WHEN 75000 THEN 'รองผู้บริหาร'
+            ELSE 'พนักงานทั่วไป' END
+            ) AS "ตำแหน่ง"
+            FROM ตาราง
+            ORDER BY salary DESC
+
+    16. เปลี่ยนคำในฐานข้อมูลเป็นตัวเลข [LIKE & CASE WHEN]
+        -   SELECT name ,
+            (
+            CASE WHEN language LIKE '%ภาษา%ภาษา%ภาษา%' THEN 3
+            ELSE 0 END
+            ) AS "จำนวนภาษา"
+            FROM ตาราง
+
+    17. การจัดกลุ่มข้อมูล [GROUP BY]
+        -   SELECT fname , COUNT(*) : นับคนที่ชื่อซ้ำกันได้
+            FROM ตาราง
+            GROUP BY fname : จัดกลุ่มชื่อ
+
+        -   SELECT address AS "ที่อยู่",
+            COUNT (*) AS "จำนวนข้อมูล",
+            MAX (salary) AS "เงินเดือนสูงสุด",
+            MIN (salary) AS "เงินเดือนต่ำสุด",
+            AVG (salary) AS "เงินเดือนเฉลี่ย"
+            FROM ตาราง
+            GROUP BY address
+
+    18. เงื่อนไขกลุ่มข้อมูลที่ทำงานร่วมกับ GROUP BY [HAVING]
+        -   SELECT address , COUNT(*)
+            SUM (salary) AS "เงินเดือนรวม"
+            FROM ตาราง
+            GROUP BY address : รวมข้อมูลเงินเดือนรวมของคนแต่ละจังหวัด
+            HAVING SUM (salary) >= 70000 AND COUNT(*) >= 2 : หาข้อมูลจังหวัดที่มีเงินเดือนรวมกันมากกว่า 70000 และมีข้อมูล 2 คนขึ้นไป
+             
+    19. การเขียน Query ซ้อน Query
+        -   SELECT fname , lname 
+            FROM employees
+            WHERE city = (SELECT city FROM customers WHERE fname = 'เฟิร์ส') : นำ query ย่อย มากำหนดเป็นเงื่อนไข
+
+    20. การสร้างตารางด้วย Sub query
+        -   CREATE TABLE bestEmployee AS 
+            SELECT id , fname , lname , salary+5000 AS 'salary'
+            FROM employees
+            WHERE address = (SELE city FROM customers WHERE fname = 'เอย') AND salary >2000 
+    
+
+[การเชื่อมตาราง/การรวมตาราง]
+    การนำตาราง 2 ตารางมารวมกันโดยข้อมูลจะต้องมีส่วนที่เชื่อมกันได้ในทั้ง 2 ตารางโดยดำเนินการผ่าน Pimary key (PK) และ Foreign key (FK)
+
+    ออกแบบตาราง :
+        
+        ตารางข้อมูลสินค้า (Products)                                
+        
+        product_id      |       รหัสสินค้า (PK)
+        product_name    |       ชื่อสินค้า
+        price           |       ราคา
+        unit            |       หน่วย 
+        type_id         |       รหัสประเภทสินค้า (FK)
+        status          |       สถานะ
+
+        ตารางข้อมูลประเภทสินค้า (Categories)
+
+        id              |       รหัสประเภทสินค้า (PK)
+        name            |       ชื่อประเภทสินค้า
+
+    1. รวมตารางด้วย WHERE 
+        SELECT Products.product_code AS "ชื่อย่อ" , Products.product_name AS "ชื่ออาหาร", Products.media_code AS "รหัสอาหาร" ,Categories.type AS "ชนิดอาหาร"
+        FROM Products,Categories
+        WHERE Products.media_code = Categories.type_id 
+
+    2. รวมตารางด้วย INNER JOIN (แสดงข้อมูลของ 2 ตารางที่มีค่าเหมือนกันในคอลัมน์ที่ระบุ (Intersect))
+        SELECT Products.product_name ,Products.product_code, Products.price, Products.media_code, Categories.type
+        FROM Products INNER JOIN Categories
+        ON Products.media_code = Categories.type_id
+        WHERE Products.price >= 2000
+
+    3. รวมตารางด้วย LEFT JOIN (แสดงข้อมูล 2 ตาราง โดยเอาข้อมูลทุกอันของฝั่งซ้าย แล้วเลือกข้อมูลจากฝั่งขวา (Left))
+        SELECT Products.product_name,Products.product_code,Products.price,Categories.type_id
+        FROM Products LEFT JOIN Categories
+        ON products.media_code = Categories.type_id
+
+    4. รวมตารางด้วย OUTTER JOIN (แสดงข้อมูลที่ไม่มีอยู่ในตารางที่เอามารวมกัน)
+        SELECT Products.product_name,Products.product_code,Products.price,Categories.type_id
+        FROM Products LEFT JOIN Categories
+        ON products.media_code = Categories.type_id
+        WHERE products.price IS NULL
+
+    5. รวมตารางด้วย RIGHT JOIN (แสดงข้อมูล 2 ตาราง โดยเอาข้อมูลทุกอันของฝั่งขวา แล้วเลือกข้อมูลจากฝั่งซ้าย (Right))
+        SELECT Products.product_name,Products.product_code,Products.price,Categories.type_id
+        FROM Products RIGHT JOIN Categories
+        ON products.media_code = Categories.type_id
+
+    6. รวมตารางด้วย FULL JOIN (แสดงข้อมูลทั้งหมดของ 2 ตาราง ทั้งที่เหมือนและไม่เหมือน (Union))
+        SELECT Products.product_name,Products.product_code,Products.price,Categories.type_id
+        FROM Products LEFT JOIN Categories
+        ON products.media_code = Categories.type_id
+        UNION
+        SELECT Products.product_name,Products.product_code,Products.price,Categories.type_id
+        FROM Products RIGHT JOIN Categories
+        ON products.media_code = Categories.type_id

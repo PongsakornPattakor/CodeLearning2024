@@ -1,0 +1,174 @@
+CSS Framework
+    คือ เครื่องมือที่ช่วยให้นักพัฒนา (Developer) สามารถออกแบบเว็บไซต์ได้ง่ายและเร็วขึ้น
+    หน้าที่หลัก : จัดเตรียมวางโครงสร้างขั้นพื้นฐานไว้ แล้วให้ผู้พัฒนาสามารถเลือกปรับแต่งได้ โดยไม่ต้องเขียนโค้ดเองทั้งหมด
+    ข้อดี : 
+        - ลดระยะเวลาการออกแบบเว็บไซต์
+        - ลดโอกาสการเกิดข้อผิดพลาด ซึ่งสามารถนำไปใช้ทำงานกับทุกอุปกรณ์ได้
+
+Tailwind CSS คืออะไร
+    คือ Utility-First CSS Framework ที่ช่วยให้สามารถออกแบบเว็บไซต์ได้เร็ซ รวมถึงปรับแต่งหน้าเว็บได้ เนื่องจากมีคำสั่งหรือ Class สำเร็จรูป
+    Utility-First CSS Framework เป็นการจัดการโดยตรงกับ element ที่เป็น Class ย่อยๆ และนำมาประกอบกันในภายหลัง
+
+Tailwind Directives
+    - @tailwind base => จัดการ Element (Tag)
+    - @tailwind components => จัดการ Class
+    - @tailwind utilities => ปรับแต่ง Class
+
+1. [กำหนดสีพื้นหลัง (Background)]
+    class : 
+        bg-ชื่อสี-ความเข้มสี
+
+2. [การจัดการข้อความ (Typography)]
+    class : 
+        text-ชื่อสี-ความเข้มสี
+        font-ความหนา
+
+    - (รูปแบบข้อความ)
+    class :
+        text-รูปแบบ
+        1. italic => ตัวเอียง
+        2. uppercase => พิมพ์ใหญ๋
+        3. lowercase => พิมพ์เล็ก
+        4. capitalize => ตัวแรกเป็นพิมพ์ใหญ่
+    - (ตำแหน่งข้อความ)
+    class : 
+        text-ตำแหน่ง
+        1. center
+        2. right
+        3. left
+    - (ความโปร่งใส)
+    class :
+        text-opacity-ค่าความโปร่ง (0-100)
+
+3. [ความกว้างและความสูง]
+    class :
+        w-ความกว้าง
+        h-ความสูง
+
+4. [Margin & Padding]
+    - (Margin)
+    class : 
+        m{t|r|b|l}-{size} (แบบทิศทางเดียว)
+        - t = top
+        - b = bottom
+        - l = left 
+        - r = right
+        mx-{size} (แนวนอน)
+        my-{size} (แนวตั้ง)
+        m-{size} (ทุกทิศ)
+    - (Padding)
+    class :
+        p{t|r|b|l}-{size} (แบบทิศทางเดียว)
+        - t = top
+        - b = bottom
+        - l = left 
+        - r = right
+        px-{size} (แนวนอน)
+        py-{size} (แนวตั้ง)
+        p-{size} (ทุกทิศ)
+
+5. [จัดการเส้นขอบ (Border)]
+    - (ขนาดเส้นขอบ)
+    class : 
+        border-size
+        border-{t|r|b|l}-size
+    - (สีเส้นขอบ)
+    class :
+        border-ชื่อสี-ความเข้มสี
+    - (Border radius)
+    class :
+        rounded
+        rounded-sm
+        rounded-md
+        rounded-lg
+        rounded-2xl
+        rounded-3xl
+        rounded-ทิศทาง-ขนาดความโค้ง
+    - (รูปแบบเส้นขอบ)
+    class : 
+        border-none
+        border-solid
+        border-dashed
+        border-dotted
+        border-double
+
+6. [Box shadow]
+    class : 
+        shadow-ขนาดเงา
+
+7. [Pseudo selector]
+    class :
+        focus : bg-green-200
+        hover : bg-blue-200
+
+8. [Responsive web design]
+    - container(กล่องบรรจุ element) => กล่องเก็บเนื้อหา
+    class : 
+        container
+    - breakpoint (จุดที่ทำให้หน้าเว็บปรับตามขนาดอุปกรณ์ต่างๆ)
+
+9. [Flexbox]
+    - row = จัดวางแนวนอน ทิศเดียวกับแกนหลัก
+    - column = จัดวางแนวตั้ง ทิศเดียวกับแกนหลัก
+
+10. [Wrap flex item]
+    - nowrap 
+    - wrap = จัดวาง item ที่เกินพื้นที่ เรียงจากบนลงล่าง
+    - wrap-reverse = จัดวาง item ที่เกินพื้นที่ เรียงจากล่างขึ้นบน
+
+11. [Grow & Shrink]
+    - flex-1 = ทำให้ item ในแถวเดียวกัน มีขนาดเท่ากัน
+    - shrink = ให้ item หดตัวจำนวนเท่าใด เมื่อเทียบกับ item อื่นๆ
+    - grow = ให้ item ขยายจำนวนเท่าใด เมื่อเทียบกับ item อื่นๆ
+
+12. [Grid layout]
+    - row
+    - column
+
+13. [Gap]
+    - gap-size 
+    - gap-x-size
+
+14. [Justify items]
+    - start
+    - center
+    - end 
+    - stretch
+15. [Justify self]
+    - start
+    - center
+    - end
+
+16. [Layer & Apply]
+        การจัดการเมื่อมีการใช้ class ซ้ำๆกันหลายจุด เช่น
+    <a href="#" class="text-green-500">Menu 1</a>
+    <a href="#" class="text-green-500">Menu 2</a>
+    <a href="#" class="text-green-500">Menu 3</a>
+    
+    @layer base{
+        tag{
+            @apply text-green-500
+        }
+    }
+
+17. [Components]
+        การจัดการเมื่อมีการใช้งาน class ย่อย หลายๆ class เช่น
+    <a href="#" class="text-white bg-red-500 p-3">Menu 1</a>
+    <a href="#" class="text-white bg-red-500 p-3">Menu 2</a>
+    <a href="#" class="text-white bg-red-500 p-3">Menu 3</a>
+    
+    @layer components{
+        .menu-button{
+            @apply text-white bg-red-500 p-3
+        }
+    }
+
+18. [Utilities class]
+        การปรับแต่ง class ของ Tailwind เช่น
+    <h1 class="text-red-500">Hello World</h>
+
+    @layer utilities{
+        .text-red-500{
+            color: blue;
+        }
+    }

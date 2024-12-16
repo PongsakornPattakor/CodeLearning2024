@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Chonburi&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    font-family: "Chakra Petch";
+    box-sizing: border-box; /*กำหนดให้ขนาดพอดีกับพื้นที่ว่างโดยคำนวณจากค่าจริง*/
+}
+.grid{
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: repeat(2,auto); /*เขียนแบบลดรูป*/
+}
+.item{
+    background-color: greenyellow;
+    border:solid 2px red;
+    padding: 3rem;
+    margin: 5px;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    border-radius: 10px;
+    text-align: center;
+}

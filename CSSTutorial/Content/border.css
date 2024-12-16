@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Chonburi&display=swap');
+*{
+    font-family: "Anuphan";
+}
+
+img{
+    width: 500px;
+    height: 300px;
+    border: solid 5px rgba(255, 0, 0, 0.907); /*การเขียน แบบ short-hand*/
+    border-radius: 10px; /*ความโค้งของเส้นขอบ*/
+}
+.div1{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(157, 0, 255);
+    border-style: solid;
+    border-top-width: 10px; /*ความหนาเส้นขอบ*/
+
+}
+.div2{
+    width: 200px;
+    height: 100px;
+    background-color: rgb(95, 192, 17);
+    border-style: dashed;
+    border-color: blue; /*สีเส้นขอบ*/
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.div3{
+    width: 150px;
+    height: 150px;
+    background-color: aquamarine;
+    /*ขอบซ้าย-ขวาเส้นทึบ*/
+    border-left-style: solid; 
+    border-right-style: solid;
+    /*ขอบบน-ล่างเส้นประ*/
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+}

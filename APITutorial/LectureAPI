@@ -1,0 +1,121 @@
+[API]
+    API = Application Programming Interface
+    Concept : 
+        - วิธีการเรียกใช้งานโปรแกรม
+        - เป็นรูปแบบการสื่อสารเพื่อเรียกใช้งานระหว่าง โปรแกรม
+        - ต้องมีการเชื่อมต่อ Internet เพื่อขอใช้บริการ
+    
+    การทำงาน : 
+        - ก่อนใช้งาน ต้องรู้ว่าใช้คำสั่งอะไรในการเข้าถึงข้อมูล เช่นจะต้องส่ง parameter อะไรไปทำงาน
+        - API ที่เปิดให้สาธารณะใช้บริการ เรียกว่า OpenAPI
+
+    รูปแบบ API :
+        - Operating Systems API
+        - Remote API
+        - Libraries and frameworks API
+        - Web APIs 
+    
+        Web APIs :  
+            - เป็นบริการที่ได้รับความนิยมมากในปัจจุบันโดยรูปแบบการสื่อสารจะอยู่ในกลุ่ม HTTP (Hypertext Transport Protocol) 
+            - การรับส่งข้อมูลของ Web service จะใช้รูปแบบข้อมูลแบบ XML หรือ JSON การทำงานจะแบ่งออกเป็น 2 ฝั่ง คือ Client(ผู้ใช้บริการ) กับ Server (ผู้ให้บริการ)
+
+        รูปแบบการสื่อสารของ Web API
+            - SOAP
+            - REST
+            - XML-RPC
+
+        REST API (Representational State Transfer) : เป็นกระบวนการสถาปัตยกรรม
+        
+            RESTful API : เป็นขั้นตอนการสร้าง Web service เพื่ออนุญาตให้ระบบ request และเข้าถึง resource บนเว็บ โดยใช้สถาปัตยกรรม REST ตามชุดคำสั่งโดยอาศัยรูปแบบของ HTTP method เช่น GET POST PUT DELETE ในการทำงาน และส่งค่ากลับมาเป็น JSON เพื่อทำให้ส่งข้อมูลข้าม platform ได้สะดวกขึ้น
+                - Resource : เป็น Object หรือตัวแทนในการเชื่อมโยงข้อมูล image, video, web page หรือข้อมูลทางธุรกิจ วัตถุประสงค์เพื่อให้ผู้ใช้บริการสามารถเข้าถึง ปรับแต่ง resource นั้นได้
+                - Client : ผู้ใช้บริการ Resource
+                - Server : ผู้ให้บริการ Resource
+
+            HTTP method (ตัวที่บ่งบอกการกระทำกับ resource)
+                - GET : สำหรับร้องขอข้อมูลจาก resource
+                - POSt : สำหรับสร้างข้อมูลใหม่ใน resource
+                - PUT : สำหรับอัพเดตข้อมูลทุก field
+                - PATCH : สำหรับอัพเดตข้อมูลในบาง field
+                - DELETE : สำหรับลบข้อมูล
+
+            HTTP Status Code (รหัสบ่งบอกสถานะ ของ request)
+                - 200 Ok (ดำเนินการ Success)
+                - 201 Create (สร้างข้อมูลใหม่เรียบร้อย)
+                - 400 Bad Request (Server ไม่เข้าใจว่า request นี้เกี่ยวกับอะไร)
+                - 404 Not Found (หา Resource ที่เรียกไปไม่เจอ หรือไม่สามารถใช้งานได้)
+                - 500 Internal Server Error (request ถูกต้อง แต่มีข้อผิดพลาดทางฝั่ง Server)
+
+
+[JSON] 
+    JSON (JavaScript Object Notation) เป็นรูปแบบการเปลี่ยนหรือรับส่งข้อมูลในระบบคอมหรือแอพ
+    คุณสมบัติ : เป็นไฟล์ประเภทข้อความ (Text) มีโครงสร้างที่คนอ่าน-เขียนแล้วเข้าใจ มีขนาดเล็ก เป็นมาตรฐานกลางของทุกภาษาสำหรับแลกเปลี่ยนข้อมูลข้ามแพลตฟอร์มระบบปฏิบัติการที่ต่างกัน
+
+    ชนิดข้อมูล (Data types) 
+        1. Number : ตัวเลข (จำนวนเต็ม, เลขทศนิยม)
+        2. String : ชุดข้อความ
+        3. Boolean : ค่าตรรกศาสตร์ 
+        4. Null : ค่าว่าง
+        5. Array : ชุดข้อมูล เขียนด้วย []
+        6. Object : ชุดข้อมูลที่เป็นคู่ key-value ใช้สัญลักษณ์ {key:value}
+
+    JavaScript Object & JSON
+        การสร้าง JSON หลักการจะคล้ายกับ Object แต่มีส่วนที่แตกต่าง เช่น 
+        1. Object
+            let user = {
+                fname:"First",
+                lname:"Pattakor"
+                getData(){
+                    // เมธอด
+                }
+                }
+            การใช้งาน : user.fname = "Pongsakorn"        
+        2. JSON ตัว key จะเป็น "String"
+            let json = {
+                "key1" : value1,
+                "key2" : value2
+            }
+
+    JSON Syntax Rule
+        1. ชื่อ key จะเขียนในเครื่องหมาย "" เท่านั้น
+        2. ข้อมูล (value) กำหนดตามชนิดข้อมูลที่ JSON รองรับ
+        3. JSON ไม่สามารถสร้าง ฟังก์ชั่นหรือเมธอดได้
+        4. การเข้าถึงข้อมูลจะใช้วิธีการแบบเดียวกันกับ JavaScript Object
+        5. นามสกุลไฟล์คือ .json
+        6. MIME Type : "Application/json"
+
+    การแปลง JSON -> Object ด้วย json.parse()
+        let json1 = JSON.parse(object)
+    
+    การแปลง JSON -> Object ด้วย json.parse()
+        let object1 = JSON.stringify(json)
+
+    JSON array & object
+        let user = {
+            "name": "first",
+            "age": 26,
+            "phone": null,
+            "language": ["ไทย", "อังกฤษ", "ญี่ปุ่น"], //json array
+            "general": { //json object
+                "weight": 68,
+                "height": 170,
+                "gender": "ชาย"
+            }
+        }
+    
+    การเรียกใช้ข้อมูลจาก JSON File 
+        1. ดึงด้วย promise
+            let output = "";
+            const list = document.getElementById("list");
+
+            fetch("users.json")
+            .then((res) => res.json())
+            .then((json) => {
+                json.users.array.forEach((item) => {
+                output += "<li>" + item.name + "</li>";
+                });
+                list.innerHTML = output;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+

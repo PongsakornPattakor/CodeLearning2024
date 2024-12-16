@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+ 
+a{
+    background-color: pink;
+}
+
+/* กำหนด style ด้วย attribute target*/
+a[target]{
+    background-color: orange;
+    color: black;
+}
+
+a[target='_blank']{
+    background-color: black;
+    color: white;
+}

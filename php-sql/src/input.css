@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu-link {
+    @apply md:bg-[#a57dfa] md:text-white p-2 rounded-md transition-all hover:bg-white hover:text-black md:hover:grow md:grow-0;
+  }
+  .brand {
+    @apply bg-[#a57dfa] content-center p-1 text-3xl rounded-md transition-all hover:scale-[1.1];
+  }
+}

@@ -1,0 +1,294 @@
+Boostrap 
+    => frontend framework ที่รวม HTML, CSS และ JavaScript เข้าด้วยกันเป็นชุดคำสั่งที่พัฒนาเพื่อกำหนดมาตรฐานการพัฒนาหน้าเว็บไซต์ในส่วนของ User Interface (UI)
+    จุดเด่นคือ :
+        - มี UI สวย
+        - โค้ดมีความสวย ง่ายต่อการพัฒนา
+        - เรียนรู้ง่าย เป็นที่นิยมทั่วโลก
+        - ประหยัดเวลาพัฒนาเว็บ
+        - รองรับการแสดงผลของหน้าจอขนาดต่างกัน
+    การนำเข้ามาใช้งาน :
+        1. แบบ CDN => ต้องต่อเน็ต
+        2. แบบ Internal => ต้องโหลดลงเครื่อง
+
+Container (กล่องบรรจุ element)
+    1. Container : จะ fix ตำแหน่งไว้กลางจอ มีการเว้นระยะ
+    2. Container-Fluid : กำหนดให้กว้างเต็มจอ
+    3. Container-{Breakpoint} : กำหนดขนาดเท่ากับอุปกรณ์
+
+1. [การจัดการข้อความและตัวอักษร]
+    - Heading (h1-h6)
+    - Display (Display1-6)
+    - Lead สำหรับทำตัวหนาหัวข้อย่อยหน้าและทิ้งระยะห่างด้านบนและล่างของย่อหน้า
+    - กำหนดความหนาข้อความ
+    - กำหนดรูปแบบอักษร
+    - blockquote ทำบล็อคส่วนหนึ่งของข้อความ
+    - จัดการรายการ (List)
+    
+    1. การกำหนดความหนาข้อความ (Font Weight)
+        - fw-bold
+        - fw-bolder
+        - fw-normal
+        - fw-light
+        - fw-lighter
+        - fst-italic
+    2. การกำหนดรูปแบบข้อความ 
+        - text-uppercase : ตัวพิมพ์ใหญ่
+        - text-lowercase : ตัวพิมพ์เล็ก
+        - text-capitalize : ตัวอักษรตัวแรกเป็นพิมพ์ใหญ่
+    3. การกำหนดขนาดข้อความ (Font Size)
+        - fs-1
+        - fs-2
+        - fs-3
+        - fs-4
+        - fs-5
+        - fs-6
+    4. การกำหนดรูปแบบรายการ
+        - list-unstyled : ไม่กำหนด
+        - list-inline : เรียงในแนวนอน
+
+2. [สีและพื้นหลัง]
+    - primary
+    - secondary
+    - success
+    - danger
+    - warning
+    - info
+    - light
+    - dark
+   
+    1. กำหนดสีข้อความ
+        - text-primary
+    2. กำหนดสีพื้นหลัง
+        - bg-danger
+
+3. [Alignment & Display]
+    - Text Alignment
+    - Display(Inline , Block , Inline-Block)
+    
+    1. การกำหนดตำแหน่งข้อความ
+        - text-start : จุดเริ่มต้นของ viewport
+        - text-center : ตรงกลาง viewport
+        - text-end : จุดสิ้นสุดของ viewport
+    2. Display
+        - none : ไม่มีการแสดงผล
+        - block : แสดงผลแบบ block (เรียงแนวตั้ง)
+        - inline : แสดงผลในบรรทัด (เรียงแนวนอน)
+        - inline-block : แสดงผลแบบแนวนอน และขยายพื้นที่ด้านใน
+
+4. [Float & Fixed position]
+    - Float
+    - Fixed
+    - Visible / Invisible
+
+5. [Margin]
+    - กำหนดระยะห่างจากเส้นขอบกับพื้นที่ภายนอก ระบุด้วย m
+    
+    1. ตำแแหน่ง
+        - t = top
+        - b = bottom
+        - s = left
+        - e = right
+        - x = left,right
+        - y = top,bottom
+        - blank = 4 ทิศทาง
+    2. ขนาด
+        - 0 (x = 0 , y = 0)
+        - 1 (x = spacer*.25 , y = spacer*.25)
+        - 2 (x = spacer*.5 , y =spacer*.5)
+        - 3 (x = spacer , y = spacer)
+        - 4 (x = spacer*1.5 , y = spacer*1.5)
+        - 5 (x = spacer*3 , y = spacer*3)
+        - auto
+
+6. [Padding]
+    - กำหนดพื้นที่ระยะห่างระหว่างเนื้อหา กับขอบ ระบุด้วย p
+
+     1. ตำแแหน่ง
+        - t = top
+        - b = bottom
+        - s = left
+        - e = right
+        - x = left,right
+        - y = top,bottom
+        - blank = 4 ทิศทาง
+    2. ขนาด
+        - 0 (x = 0 , y = 0)
+        - 1 (x = spacer*.25 , y = spacer*.25)
+        - 2 (x = spacer*.5 , y =spacer*.5)
+        - 3 (x = spacer , y = spacer)
+        - 4 (x = spacer*1.5 , y = spacer*1.5)
+        - 5 (x = spacer*3 , y = spacer*3)
+        - auto
+
+ึึ7. [กำหนดความกว้างและความสูง]
+    - w คือ กำหนดความกว้าง
+    - h คือ กำหนดความสูง
+
+8. [กำหนดเส้นขอบ]
+    - border = เส้นขอบ 4 ทิศทาง
+    - border-top = เส้นขอบบน
+    - border-bottom = เส้นขอบล่าง
+    - border-start = เส้นขอบซ้าย
+    - border-end = เส้นขอบขวา
+    
+    1. กำหนดสีข้อความ
+        - border-primary
+        - border-secondary
+        - border-danger
+        - border-warning
+    2. กำหนดความหนาขอบ
+        - border border-1
+        - border border-2
+        - border border-3
+        - border border-4
+        - border border-5
+    3. กำหนดความโค้ง
+        - rounded
+        - rounded-top
+        - rounded-bottom
+        - rounded-start
+        - rounded-end
+    4. กำหนดขนาดความโค้ง
+        - rounded-0
+        - rounded-1
+        - rounded-2
+        - rounded-3
+
+9. [Button]
+    - กำหนดสีปุ่ม
+    - ปุ่มแบบ Link
+    - Button tag
+    - Ounline Button
+    - ขนาดปุ่ม
+    - Block button 
+    - Button group
+    - Button vertical group
+    - Dropdown menu
+    - Button style 
+
+10. [Navbar]
+    - การสร้าง Navbar
+    - Navbar color
+    - Navbar toggle
+    - Navbar form
+    - Fixed-top
+    - Fixed-bottom
+    - Sticky-top
+    - Dropdown menu
+
+11. [List]
+    - สร้าง List ด้วย ul
+    - สร้าง List แบบ Link
+    - List แบบ Active
+    - กำหนดสีให้ List
+    - List แบบไม่มีขอบ (Flush)
+
+12. [BreakCrumb-Badge]
+    - ใช้นำทางเว็บ
+    - สร้าง BreadCrumb (ตัวบอกว่าตอนนี้อยู่ที่หน้าไหน)
+    - BreadCrumb แบบ Link
+    - Badge
+
+13. [Alert]
+    - ใช้เป็นกล่องสำหรับแจ้งเตือน
+    - การสร้าง Alert
+    - กำหนดสี Alert
+    - Link Alert
+    - การปิด Alert
+
+14. [Progressbar]
+    - การสร้าง Progressbar
+    - การสร้าง Progressbar แบบ Text
+    - กำหนดสี Progressbar
+    - กำหนดความสูง Progressbar
+    - กำหนดลาย Progressbar (Striped Progressbar)
+    - กำหนดสี Progressbar แบบหลายสี (Multiple Progressbar)
+
+15. [Table]
+    - การสร้างตาราง
+    - กำหนดธีม Dark / Light
+    - กำหนดหัวตาราง / Striped
+    - กำหนดเส้นขอบ Bordered / Borderless
+    - Hover / สีของแถว
+    - Small / Responsive
+
+16. [Pagination]
+    - การสร้างหมายเลขหน้า
+    - กำหนดตำแหน่ง (Alignment)
+    - Active / Disabled
+    - กำหนดขนาด
+    - หมายเลขหน้าแบบลูกศร (Arrow)
+
+17. [ตกแต่ง Form]
+    - Form control
+    - Form check
+    - Form validation
+
+18. [Input group]
+    - Text field
+    - CheckBox
+    - Radio
+    - Button
+
+19. [Card]
+    - สร้างการ์ดเบื้องต้น
+    - กำหนดรายละเอียดการ์ด
+    - การใส่ภาพในการ์ด
+    - Header , Footer
+    - Card navigation
+    - Image overlay
+    - Card background
+    - Card border
+    - Card group
+
+20. [Grid system]
+    - คือ Layout สำหรับควบคุมและจัดสรรพื้นที่บนหน้าเว็บ จะใช้ร่วมกับ Container องค์ประกอบได้แก่ Row , Column
+    - ในการสร้าง Grid system จะแนะนำให้ใช้ row และ column ภายใน Container
+    - สำหรับ Container นั้นจะแสดงผลเนื้อหาตามที่กำหนดความกว้างของหน้าจอ
+    
+    1. Row & Column
+        - การสร้าง Row จะใช้ class ชื่อว่า row สามารถสร้างได้ไม่จำกัด แต่จะต้องสร้างภายใต้ Container
+        - พื้นที่ของ Row จะมี 12 คอลัมน์
+        - กรณีที่ไม่ไดกำหนดจำนวน คอลัมน์ Bootstrap จะคำนวณพื้นที่แสดงผลบนจอที่ขนาดต่างกันแบบอัตโนมัติ (Auto Layout Column)
+    2. Column Breakpoint
+        - การกำหนดจำนวนคอลัมน์ ให้อ้างอิงพื้นที่การแสดงผลตามอุปกรณ์ที่ใช้ เช่น Smart phone , Tablet
+    3. Grid options
+            อุปกรณ์                       ขนาด                                Class
+        Extra small(xs)                 <576px                              .col-int
+        Small(sm)                       >=576px                             .col-sm-int
+        Medium(md)                      >=768px                             .col-md-int
+        Large(lg)                       >=992px                             .col-lg-int
+        Extra large(xl)                 >=1200px                            .col-xl-int
+        Extra extra large(xxl)          >=1400px                            .col-xxl-int
+
+        - int คือจำนวน คอลัมน์ ที่ต้องการแบ่งให้กับแต่ละเนื้อหาในหน้าเว็บ เช่น ต้องการผล 2 ส่วน ในแถวซึ่งทำงานใน Smart phone หรือ Small device โดยมีพื้นที่ 6 คอลัมน์ จะเขียนดังนี้
+                <div class="row">
+                    <div class="col-sm-6">Area 1</div>
+                    <div class="col-sm-6">Area 2</div>
+                </div>
+    4. Grid Alignment (vertical)
+        - การจัดวาง column-item ที่อยู่ใน row มีลักษณะคล้ายกับ flex alignment ประกอบด้วย align-items (item ทุกตัว) และ align-self (item ที่ต้องการ)
+    5. Grid Alignment (horizontal)
+        - การจัดวาง colimn-item ที่อยู่ใน row มีลักษณะคล้ายกับ flex justify จะใช้
+            justify-content- 
+                - start : ชิดซ้าย
+                - center
+                - end : ชิดขวา
+                - around
+                - between : ระยะห่างซ้ายขวาและขนาด item เท่ากัน (ติดมุม)
+
+21. [Flexbox]
+    - เครื่องมือจัดตำแหน่ง element บนหน้าเว็บ
+
+22. [Carousel slider]
+    - การทำเนื้อหาบนเว็บ เช่น ภาพ
+    - การสร้าง Carousel
+    - การควบคุม Carousel
+    - บอกจำนวน Slide ด้วย Indicators
+    - กำหนดรายละเอียะผ่าน Caption
+
+23. [JavaScript widget]
+    - Collapse & Accordion
+    - Tooltips
+    - Popovers
+    - Modal

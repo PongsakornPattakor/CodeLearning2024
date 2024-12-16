@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: solid 2px black;
+    border-radius: 5px;
+    background-color: aqua;
+
+    /* ย้ายตำแหน่งกล่อง */
+    transform: translate(400px,300px);
+}

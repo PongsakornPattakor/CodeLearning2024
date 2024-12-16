@@ -1,0 +1,19 @@
+.first{
+    color: blueviolet;
+    border: solid 2px black;
+    border-radius: 5px;
+    background-color: bisque;
+    padding: 5px 2px;
+    text-align: center;
+
+}
+
+.light{
+    background-color: orange;
+    color: black;
+}
+
+.dark{
+    background-color: purple;
+    color: bisque;
+}

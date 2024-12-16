@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Chonburi&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*{
+    font-family: "Anuphan";
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    background-color: rgb(0, 183, 255);
+    flex-direction: row; /*เรียง item ตามแนวนอน*/
+    flex-wrap: wrap;
+    justify-content: flex-end; /*ย้าย item ตามแนวนอน*/
+}
+.item{
+    background-color: orange;
+    border: solid 2px black;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}

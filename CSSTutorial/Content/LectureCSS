@@ -1,0 +1,349 @@
+CSS (Cascading Style Sheets) 
+    เป็นเทคโนโลยีจัดรูปแบบและควบคุมการแสดงผลของเว็บ เช่น ขนาด สี แบบอักษร เส้นขอบ
+
+โครงสร้าง CSS
+    Selector (แท็กอ้างอิง) { 
+        Declaration (คุณสมบัติ)
+    }
+    1. Selector คือแท็ก HTML, ID และ Class
+    2. Declaration ใช้กำหนดค่าให้ Selector
+
+Selector มี 3 รูปแบบ
+    1. Element Selector คือการกำหนด style ให้แท็ก HTML โดยตรง
+    2. Class Selector คือ กำหนด style ด้วยชื่อ class โดยใช้เครื่องหมาย . หน้าชื่อ class
+    3. ID Selector คือ กำหนด style โดยระบุชื่อ ID เป็นรหัสเฉพาะ โดยใช้เครื่องหมาย # หน้าชื่อ ID
+
+Universal Selector
+    กำหนด style sheet มีผลต่อทุกแท็กของเว็บเพจโดยใช้เครื่องหมาย *
+    *{
+        color:red;
+    }
+
+Declaration มี 2 ส่วน
+    1. Property หรือ Attribute คือคุณสมบัติที่ต้องการกำหนดให้ Selector
+    2. Value คือ ค่าที่กำหนดให้กับ Property หรือ Attribute
+
+โครงสร้าง ของ CSS
+    การกำหนดส่วนของ property กับ value จะแยกด้วยเครื่องหมาย colon(:) แต่ถ้ามีมากกว่า 1 property จะแยกด้วย semi-colon(;) ดังนี้
+    selector {property:value ; property:value...}
+
+การประกาศใช้ CSS
+    1. Inline => แทรก attribute style ลงในแท็กโดยตรง เช่น
+        <p style="color:green">Pongsakorn</p>
+    2. Embeded => กำหนด Style ภายใต้ <style>...</style> เช่น
+        <style>
+            p{
+                color:red;
+            }
+        </style>
+    3. External => กำหนด Style แยกอีกไฟล์ ด้วยไฟล์สกุล .css แล้วค่อยเชื่อมเข้ามาในเว็บเพจ เช่น
+            ไฟล์ style.css
+        p{
+            color:blue;
+        }
+            ไฟล์ .html
+        <link rel="stylesheet" href="style.css"
+
+การเขียน comment ใน CSS จะเขียนด้วย => /*comment*/
+
+หน่วย (Unit) ใน CSS แบบตายตัว
+    1. px => pixel โดย 1px = 0.75pt สัมพันธ์กับรายละเอียดจอ
+    2. pt => point โดย 1pt = 1/72 inchs
+    3. cm => centimeter
+    4. mm => millimeter
+    5. in => inches โดย 1in = 96px = 2.54 cm
+    6. pc => picas โดย 1pc = 12pt
+
+หน่วย (Unit) ใน CSS แบบอัตราส่วน มักใช้ส่วนของการออกแบบหน้าเว็บครั้งเดียวแล้วให้แสดงผลกับอุปกรณ์ที่ขนาดต่างกัน
+    1. % => กำหนดขนาดเป็นเปอร์เซนต์ มักใช้กับความกว้างและสูง
+    2. em => อ้างอิงตาม element parent ที่ใกล้ทีสุด หรืออ้างอิงตามขนาด ก้อนแม่
+    3. rem => อ้างอิงตาม root element หรืออ้างอิงตามก้อนแรกเริ่ม ปกติ fon-size จะอยู่ที่ 16px
+    4. vw => 1% ของ viewport width
+    5. vh => 1% ของ viewport height
+    6. vmin,vmax => กำหนดค่าสูงสุด ต่ำสุดของ viewport
+
+Font
+    1. font-family : กำหนดประเภท font
+        - แบบ link
+        - แบบ import
+    2. font-size : กำหนดขนาด เล็ก/ใหญ่ font
+        - แบบค่าคงที่ => xx-small ,x-small , medium, large, x-large, xx-large
+        - แบบตัวเลข => 10px, 20pt
+    3. font-weight : กำหนดความหนาข้อความ
+        - แบบค่าคงที่ => lighter, bold, bolder
+        - แบบตัวเลข => 100,200,...,900
+    4. font-style : กำหนด ลักษณะ font เช่น italic, oblique(เอียง 45 องศา)
+
+สี (Colors) => กำหนดได้ 4 รูปแบบ ใช้เว็บ color picker ช่วยดูได้
+    1. ชื่อสี : green, red, yellow
+    2. RGB : rgb(100%,100%,100%)
+    3. Hexadecimal : #000 #FFF
+    4. HSL : (hue,saturation,lighness)
+
+การกำหนดลักษณะข้อความ (Text-decoration) => กำหนดได้ 4 รูปแบบ มักใช้ทำงานร่วมกับ link
+    1. none : ค่าว่าง
+    2. underline : ขีดเส้นใต้
+    3. overline : ขีดเส้นเหนือข้อความ
+    4. line-through : ขีดเส้นทับข้อความ
+
+การจัดแนวข้อความ (Text-align) => กำหนดได้ 4 รูปแบบ
+    1. left : ชิดซ้าย (ค่าเริ่มต้น)
+    2. center : ตรงกลาง
+    3. right : ชิดขวา
+    4. justify : ทุกบรรทัดกว้างเท่ากัน
+
+การเว้นระยะห่าง
+    1. text-indent => ย่อหน้า
+    2. letter-spacing => ระยะห่างอักษร
+    3. line-height => ระยะห่างบรรทัด
+    4. word-spacing => ระยะห่างคำ
+
+การกำหนดความกว้างและความสูง
+    1. width : กำหนดความกว้างวัตถุ
+        - auto => browser จะกำหนดให้เอง
+        - length => ความกว้างแบบหน่วยวัด เช่น px, cm
+        - % => ความกว้างแบบ % (แบบยืดหยุุ่น)
+        - max-width => กำหนดความกว้างสูงสุดที่ยืดได้
+        - min-width => กำหนดความกว้างต่ำสุดที่ย่อได้
+    2. height : กำหนดความสูงของวัตถุ
+        - auto => browser จะกำหนดให้เอง
+        - length => ความสูงแบบหน่วยวัด เช่น px, cm
+        - % => ความสูงแบบ % (แบบยืดหยุุ่น)
+        - max-height => กำหนดความสูงสูงสุดที่ยืดได้
+        - min-height => กำหนดความสูงต่ำสุดที่ย่อได้
+
+การกำหนดเส้นขอบ
+    border : <รูปแบบเส้น><ขนาด><สี>; /*การเขียนแบบ short-hand
+    1. การกำหนดรูปแบบเส้นขอบ (Border style) => รูปแบบเส้น เช่น solid(เส้นทึบ) dotted(จุด) dashed(เส้นประ)
+        border-style : <รูปแบบเส้น> ;
+        border-(ทิศทาง)-style : <รูปแบบเส้น> ;
+    2. การกำหนดขนาดเส้นขอบ (Border width) => ขนาดเส้น มีตัวเลขตามหน่วย หรือ ค่าคงที่
+        border-width : <ขนาด> ;
+        border-(ทิศทาง)-width : <ขนาด> ;
+    3. การกำหนดสีเส้นขอบ (Border color) => สี เช่น rgb hex
+        border-color : <สี> ;
+        border-(ทิศทาง)-color : <สี> ;
+    4. การกำหนดความโค้งเส้นขอบ (Border radius)
+        border-radius : <ค่าความโค้งบนซ้าย> <ค่าความโค้งบนขวา> <ค่าความโค้งล่างขวา> <ค่าความโค้งล่างซ้าย> ;
+        border-(ทิศทาง)-radius : <ค่าความโค้ง> ;
+
+Box Model (สำคัญมากต่อการปรับระยะห่าง element) ประกอบด้วย
+    1. เนื้อหา => ภาพ เสียง วีดีโอ ลูกเล่นต่างๆ
+    2. Padding => ระยะห่างจากเนื้อหา เทียบกับเส้นขอบ
+    3. Margin => ระยะห่างระหว่าง element อื่นๆ
+
+การกำหนดพื้นที่รอบ Element
+    1. Margin => กำหนดระยะห่างจากเส้นขอบหรือพื้นที่ภายนอกของ element เทียบกับวัตถุอื่นๆ (ช่องว่างข้างนอก)
+        margin: ค่าที่กำหนด ;
+        margin-(ทิศทาง) : ค่าที่กำหนด ;
+        margin:auto; (ให้ browser จัดให้เอง ปกติจะกำหนดกึ่งกลาง)
+    2. Padding => กำหนดพื้นที่ระยะห่างภายใน element (ช่องว่างข้างใน)
+        paddint: ค่าที่กำหนด ;
+        padding-(ทิศทาง) :
+    3. Border => กำหนดเส้นขอบ
+
+การกำหนดสีพื้นหลัง (ฺBackground color)
+    background-color : <สี>
+
+การกำหนดภาพพื้นหลัง (ฺBackground image)
+    background-image : url(ลิงค์รูป หรือตำแหน่งรูปในเครื่อง);
+    background-repeat : xxx;
+        - repeat-x => ซ้ำแนวนอน
+        - repeat-y => ซ้ำแนวตั้ง
+        - no-repeat => ไม่ทำซ้ำเลย
+
+การกำหนดตำแหน่งด้วย float 
+    1. float => กำหนดให้ element ลอยอยู่ด้านใดด้านหนึ่ง
+        - left,right => ให้ลอยอยู่ซ้ายหรือขวา
+        - inherit => ลอยตาม parent element
+        - none => ไม่ให้มีการลอย (default)
+    2. clear => ไม่อนุญาตให้มีการลอยของ element
+        - left,right => ไม่อนุญาตให้ลอย ฝั่งซ้ายหรือขวา
+        - both => ไม่อนุญาตให้ลอย ทั้งสองฝั่ง
+    
+การกำหนด style ให้กับ link
+    1. a:link => กำหนด style ให้ link ตอนที่ยังไม่กด
+    2. a:visited => กำหนด style ให้ link หลังจากกดไปแล้ว
+    3. a:hover => กำหนด style ให้ link ตอนที่เอาเมาส์ชี้
+    4. a:activate => กำหนด style ให้ link ตอนที่กดค้าง
+
+การจัดรูปแบบการแสดงผล layout Inline, Block, Inline-Block
+    - none => ไม่มีการแสดงผล
+    - block => แสดงผลแบบขึ้นบรรทัดใหม่
+    - inline => แสดงผลแบบต่อๆกัน
+    - inline-block => แสดงผลแบบแนวนอนและขยายพื้นที่ด้านใน
+
+การแสดงหรือซ่อนวัตถุโดยไม่กระทบ layout (Visibility)
+    - visible => มองเห็น element ได้
+    - hidden => ซ่อน element ไว้
+
+การจัดตำแหน่ง (Position)
+    1. static => จัดวางแบบปกติ
+    2. relative => จัดวางและกำหนดตำแหน่งวัตถุโดยนับจากจุดนั้นๆ
+    3. absolute => จัดวางในตำแหน่งจากวัตถุที่ครอบ ถ้าไม่มีอะไรครอบ จะถือว่า body ครอบ
+    4. fixed => จัดวางให้อยู่ตำแหน่งเดิม
+    5. sticky => จัดวางให้วัตถุติดขอบเมื่อเลื่อนไปถึง
+
+ลำดับความสำคัญของ Style
+    - เรียงลำดับความสำคัญจากสิ่งที่ใหม่สุด หรือล่าสุด
+    - !important => กำหนดให้มีความสำคัญมากสุด
+
+การจำกัดการแสดงผลข้อมูลด้วย Overflow
+    1. visible => แสดงข้อมูลทั้งหมด (default)
+    2. hidden => ซ่อนข้อมูลที่เกิน
+    3. scroll => ทำให้มี scroll bar เมื่อข้อมูลเกิน
+        - overflow: scroll
+        - overflow-x: scroll
+        - overflow-y: scroll
+    4. auto =>  ทำให้มี scroll bar แสดงผลอัตโนมัติ
+
+การกำหนด Cursor style
+    - pointer => รูปชี้
+    - progress => รูปโหลด
+    - ฯลฯ
+
+การกำหนดเงาอักษรด้วย Text-shadow
+    text-shadow : x y blur color
+        - x => เงาแกน x (ขวา+,ซ้าย-)
+        - y => เงาแกน y (ขวา+,ซ้าย-)
+        - blur => ขนาดความมัวของเงา
+        - color => สีของเงา    
+
+กำหนดเงาให้วัตถุด้วย Box-shadow
+    box-shadow : x y blur spread color
+        - x => เงาแกน x (ขวา+,ซ้าย-)
+        - y => เงาแกน y (ขวา+,ซ้าย-)
+        - blur => ขนาดความมัวของเงา
+        - spread => ขนาดเงา
+        - color => สีของเงา
+
+กำหนดค่าความทึบ (Opacity)
+    opacity : value => ค่าอยู่ระหว่าง 0.0-1.0 ยิ่งค่าน้อย ยิ่งจาง
+
+การจัด Layer ของ element ด้วย Z-index
+    z-index : layer => ชั้นที่ต้องการกำหนด ค่าที่มากกว่าจะอยู่ด้านหน้า ค่าที่น้อยกว่าจะอยู่ด้านหลัง
+
+Responsive Web Design =>การออกแบบเว็บที่ตอบสนองได้ดีบนอุปกรณ์ที่มีขนาดหน้าจอหลากหลาย เช่น คอม ไอโฟน ไอแพด
+    Media query => รูปแบบการเขียน style ให้แสดงผลตามขนาดหน้าจอ
+        @media ขนาดอุปกรณ์ {
+            style
+        }
+        @media screen, printer{
+            style
+        }
+    ความกว้างขนาดอุปกรณ์
+        - mobile : 320px-480px
+        - tablet : 481px-768px
+        - laptop : 769px-1024px
+        - desktop : 1025px-1200px
+        - TV : 1201px++
+
+Viewport Units 
+    1. vw => บอกสัดส่วนความกว้างของ viewport(%) เช่น ถ้ามีจอกว้าง 100px ต้องการแสดงผล 10% จะมีค่า 10vw
+    2. vh => บอกสัดส่วนความสูงของ viewport (%)
+    3. vmin => ค่า % ต่ำสุดของ viewport
+    4. vmax => ค่า % สูงสุดของ viewport
+
+Flexbox => เครื่องมือช่วยจัดการ element ในการจัดตำแหน่งได้ 1 มิติ
+    การใช้งาน
+    display : flex;
+        1. container => ที่จัดเก็บ items 
+        2. items => สมาชิกใน container
+
+Flex-direction => กำหนดทิศทางของ flexbox
+    1. row => จัด item แนวนอนทิศเดียวกับแกนหลัก
+    2. column => จัด item แนวตั้งทิศเดียวกับแกนหลัก
+    3. row-reverse => จัด item แนวนอนตรงข้ามกับแกนหลัก
+    4. column-reverse => จัด item แนวตั้งตรงข้ามกับแกนหลัก
+
+Flex-wrap => กรณีที่มี item ใหญ่กว่า container
+    1. nowrap => จัดวาง item ที่เกิน ไปทางด้านขวามือ
+    2. wrap => จัดวาง item ที่เกิน เรียงจากบนลงล่าง
+    3. wrap-reverse => จัดวาง item ที่เกิน เรียงจากล่างขึ้นบน
+
+Flex-properties
+    1. flex-shrink: ให้ item หดตัวเมื่อเทียบกับ item อื่นๆ (ค่าเริ่มต้น = 1)
+    2. flex-grow: ให้ item ขยายตัวเมื่อเทียบกับ item อื่นๆ (ค่าเริ่มต้น = 0)
+    3. flex-basis: กำหนดค่าความยืดหยุ่นเริ่มต้น
+    4. flex:1 ทำให้ item ที่อยู่แถวเดียวกัน มีขนาดเท่ากัน
+
+Flex Justify(จัดวางตำแหน่ง item) => จัดเรียงตำแหน่ง item แนวเดียวกับกับแกนหลัก
+    justify-content : ตำแหน่ง
+        1. flex-start => ชิดซ้าย container
+        2. center => กึ่งกลาง container
+        3. flex-end => ชิดขวา container
+        4. space-around => ระยะห่างซ้ายขวาและขนาด item เท่ากัน
+        5. space-between => ระยะห่างซ้ายขวาและขนาด item เท่ากัน(ติดมุุม)
+
+Flex Alignment(จัดวางตำแหน่ง item) => จัดเรียงตำแหน่ง item ตรงข้ามกับแกนหลัก
+    align-items (item ทั้งหมด) และ align-self(item ที่ต้องการ)
+        1. stretch => ขนาด item เท่ากับขนาด container
+        2. flex-start => ชิดด้านบน
+        3. center => กึ่งกลาง container
+
+CSS Grid layout => ถูกออกแบบให้จัดการ layout แบบ 2 มิติ คือได้ทั้งแนวตั้งและแนวนอน
+    การใช้งาน
+        display : grid ;
+    กำหนดขนาดแถว
+        grid-template-rows : ความสูงของแถวที่ 1,2,3 ;
+    กำหนดขนาดคอลัมน์
+        grid-template-columns : ความกว้างของคอลัมน์ที่ 1,2,3 ;
+        
+การกินพื้นที่ของ grid
+    1.  grid-row-start: เส้นที่เริ่มต้น row
+        grid-row-end: เส้นที่สิ้นสุด row
+        grid-row: a/b (เขียนแบบย่อ)
+    2.  grid-column-start: เส้นที่เริ่มต้น column
+        grid-column-end: เส้นที่สิ้นสุด column
+        grid-column: a/b (เขียนแบบย่อ)
+    
+Grid properties อื่นๆ
+    1. กำหนดสัดส่วนพื้นที่ด้วย span โดยมีการกินพื้นที่ตามแถวหรือคอลัมน์ แทนเส้น
+    2. กำหนดสัดส่วนพื้นที่ด้วย fr มีการกินพื้นที่แบบอัตราส่วนของทั้งหมด
+    3. กำหนดระยะห่างพื้นที่ด้วย gap
+    4. กำหนดชื่อพื้นที่ด้วย grid-template-area
+
+Advance selectors
+    1. Targeted selectors
+        - Descendant selector : เข้าไปใน selector แล้วให้ลูกและหลานทำงาน
+        - Child selector : เข้าไปใน selector แล้วให้เฉพาะลูกทำงาน
+        - 
+    2. Style by attribute : กำหนด Style ด้วย Attribute
+    3. Special selector : ระบุ Attribute หลายค่า แต่ให้แสดงผลเหมือนกัน
+    4. Pseudo selector
+        - first-child 
+        - last-child
+        - nth-Child
+    5. Before & After Pseudo
+
+CSS Variable
+    การนิยามตัวแปร เพื่ออำนวยความสะดวกตอนกำหนด style ให้ element โดยลดขั้นตอนการทำงานที่ซ้ำซ้อน โดยตัวแปรส่วนใหญ่จะเก็บค่าที่มีการเรียกใช้งานซ้ำๆ เช่น สี เงา อนิเมชั่น
+    การเรียกใช้
+        :root{
+            --ชื่อตัวแปร : ค่าที่กำหนด;
+        }
+
+จัดการ Element ด้วย Transform
+    1. translate(x,y) => กำหนดตำแหน่ง element
+    2. scale(x,y) => ขยาย element
+    3. rotate(มุม deg) => กำหนดการหมุน
+    4. skewX(มุม deg) => กำหนดการเอียงแกน x
+    5. skewY(มุม deg) => กำหนดการเอียงแกน y
+
+เปลี่ยนแปลง Element ด้วย Transition
+    1. transition-properties => รูปแบบคุณสมบัติที่เปลี่ยนแปลง
+    2. transition-duration => ระยะเวลาในการเปลี่ยนแปลง (s)
+    3. transition-timing-function => รูปแบบฟังก์ชั่นในการเปลี่ยนแปลง
+        - linear
+        - ease-in
+        - ease-in-out
+        - ease-out
+    4. transition-delay => ระยะเวลาก่อนจะเริ่มเปลี่ยนแปลง (s)
+
+CSS Animation
+    1. animation-name => ชื่อ 
+    2. animation-duration => ระยะเวลา animation ตั้งแต่เริ่มจนจบ
+    3. animation-timing-function => รุปแบบการเล่น animation
+    4. animation-iteration-count => จำนวน loop ที่ใช้เล่น animation
+    5. animation-direction => ทิศทางการเล่นของ animation
+    6. animation-delay => ระยะเวลาก่อนเริ่มเล่น animation

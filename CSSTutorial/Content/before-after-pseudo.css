@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+
+div{
+    display: flex;
+    position: relative;
+    top:300px;
+    left:300px;
+}
+
+/* ให้แสดงผลด้านหน้า */
+.name-required::before{
+    content: "*";
+    color: red;
+    padding-left: 10px;
+}
+
+/* ให้แสดงผลด้านหลัง */
+.age-required::after{
+    content: "*";
+    color: rgb(255, 204, 0);
+}

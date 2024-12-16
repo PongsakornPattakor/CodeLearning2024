@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow & Shrink Tailwind</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+    <!-- Flex grow -->
+    <div class="container-fluid bg-indigo-300 my-2 flex">
+        <div class="w-80 bg-red-400">Box 1</div>
+        <div class="w-80 bg-green-400 flex-grow">Box 2</div>
+        <div class="w-80 bg-blue-400">Box 3</div>
+    </div>
+
+    <!-- Flex-1 -->
+    <div class="container-fluid bg-indigo-300 my-2 flex">
+        <div class="w-80 bg-red-400 flex-1">Box 1</div>
+        <div class="w-80 bg-green-400 flex-1">Box 2</div>
+        <div class="w-80 bg-blue-400 flex-1">Box 3</div>
+    </div>
+
+    <!-- Flex shrink -->
+    <div class="container-fluid bg-indigo-300 my-2 flex">
+        <div class="w-80 bg-red-400 flex-auto">Box 1</div>
+        <div class="w-80 bg-green-400 flex-shrink">Box 2</div>
+        <div class="w-80 bg-blue-400 flex-auto">Box 3</div>
+    </div>
+</body>
+
+</html>

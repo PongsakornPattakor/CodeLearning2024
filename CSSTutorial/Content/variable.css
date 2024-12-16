@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* กำหนดให้เป็น Global variable */
+:root{
+    --border-style: solid 2px black; /* ข้อดีคือ ในอนาคต ถ้าจะแก้ มาแก้ที่ตัวแปรตัวเดียว */
+    --shadow: 5px 5px 5px gray;
+}
+
+
+div {
+    padding: 5px;
+    margin: 10px;
+}
+.box-1{
+    border: var(--border-style);
+    background-color: bisque;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.box-2{
+    border: var(--border-style);
+    background-color: orange;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.box-3{
+    border: var(--border-style);
+    background-color: yellowgreen;
+    box-shadow: var(--shadow);
+    text-align: center;
+}

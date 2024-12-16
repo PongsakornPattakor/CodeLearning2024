@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popovers</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container my-2">
+        <!-- JavaScript widget -->
+        <!-- Popovers -->
+        <button class="btn btn-danger" data-bs-toggle="popover" title="ที่อยู่ของฉัน"
+            data-bs-content="63 ถ.ปฏัก ต.กะรน อ.เมือง จ.ภูเก็ต">คลิกเพื่อดูรายละเอียดที่อยู่</button>
+    </div>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
+</body>
+
+</html>

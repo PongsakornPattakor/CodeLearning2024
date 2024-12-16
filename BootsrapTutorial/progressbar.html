@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressbar</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 20px;">
+        <!-- การสร้าง Progressbar -->
+        <div class="progress">
+            <div class="progress-bar" style="width: 50%;"></div>
+        </div><br>
+
+        <!-- การสร้าง Progressbar พร้อมความคืบหน้า -->
+        <div class="progress">
+            <div class="progress-bar" style="width: 50%;">50%</div>
+        </div><br>
+
+        <!-- กำหนดสีให้ Progressbar -->
+        <div class="progress">
+            <div class="progress-bar bg-success" style="width: 100%;">Success</div>
+        </div><br>
+        <div class="progress">
+            <div class="progress-bar bg-warning" style="width: 25%;">25%</div>
+        </div><br>
+
+        <!-- กำหนดความสูง Progressbar -->
+        <div class="progress" style="height: 50px;">
+            <div class="progress-bar bg-danger" style="height: 100%; width: 75%;">Danger 75%</div>
+        </div><br>
+
+        <!-- Striped Progressbar (ใส่ลาย) -->
+        <div class="progress" style="height: 50px;">
+            <div class="progress-bar bg-secondary progress-bar-striped" style="height: 100%; width: 75%;">Striped 75%
+            </div>
+        </div><br>
+
+        <!-- Striped Animation -->
+        <div class="progress" style="height: 50px;">
+            <div class="progress-bar bg-secondary progress-bar-striped progress-bar-animated"
+                style="height: 100%; width: 75%;">Striped 75%</div>
+        </div><br>
+
+        <!-- Multiple Progressbar -->
+        <div class="progress" style="height: 70px;">
+            <div class="progress-bar bg-warning" style="width: 25%;">25%</div>
+            <div class="progress-bar bg-danger" style="width: 25%;">25%</div>
+            <div class="progress-bar bg-primary" style="width: 50%;">50%</div>
+        </div>
+
+    </div>
+</body>
+
+</html>

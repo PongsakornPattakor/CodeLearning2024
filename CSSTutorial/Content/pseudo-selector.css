@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+}
+
+li{
+    padding: 0.25rem;
+    margin: 0.25rem;
+    list-style: none;
+}
+
+/* Pseudo selector */
+li:first-child{
+    background-color: orange;
+}
+
+li:last-child{
+    background-color: green;
+}
+
+li:nth-child(3){ /*นับตัวที่ 3 จากบน ลงล่าง*/
+    background-color: aqua;
+}
+
+li:nth-last-child(3){ /*นับตัวที่ 3 จากล่าง ขึ้นบน*/
+    background-color: red;
+}
+
+li:nth-child(3n+1){ /*กำหนดให้แสดงผลทุก 3 ตัว โดยเริ่มที่เลข 1*/
+    border:solid 2px black;
+}
+
+li:nth-child(even){ /*กำหนดให้แสดงผลเฉพาะเลขคู่ ถ้าเลขคี่ ต้องกำหนด odd */
+    text-align: center;
+}

@@ -1,0 +1,82 @@
+แนวคิดภาษาเชิงวัตถุ = คล้ายจำลองความเป็นอยู่ของมนุษย์ สิ่งของ เพื่อแก้ปัญหา
+    
+    Procedural Programming Language (PPL) VS Object Oriented Programming Language (OOP)
+    1. PPL = โปรแกรมแบ่งเป็นส่วนย่อยๆ เรียกว่า โมดูล (Module) แต่ะละโมดูลจะทำงานเพียง 1 งานเท่านั้น
+    2. OOP PL = การพัฒนาโปรแกรมให้เลียนแบบการทำงานเชิงวัตถุ สามารถนำโปรแกรมกลับมาใช้ใหม่ได้ดีกว่า PPL
+
+    Class = ต้นแบบของวัตถุ (Prototype)
+    Object = สิ่งที่ประกอบด้วย 
+        1. คุณลักษณะ (attribute หรือ data member)
+        2. พฤติกรรม (behavior หรือ method)
+    
+    ยกตัวอย่างเช่น 
+    Class Pokemon
+        name = Pikachu //fields
+        type = Electric //fields
+        health = 70 //fields
+
+        attack(); //methods
+        dodge(); //methods
+        evolve(); //methods
+
+    Access Modifier => ระดับการเข้าถึง Class, Attribute, Method โดยมีประโยชน์ในการจำกัดสิทธิ์การเข้าใช้งาน
+        1. Public = ใครๆก็เข้าถึงและเรียกใช้งานได้ ยกตัวอย่างเช่น โพสต์สาธารณะในเฟสบุ๊ค ทุกคนคอมเมนท์ได้
+        2. Protected = ประกาศการเข้าถึงที่เกี่ยวกับการสืบทอด (Inheritance) คลาสที่ถูกกำหนด เป็น Protected เหมือนกัน จะสามารถใช้งานสมาชิกได้ เช่น โพสต์ที่มีเฉพาะเพื่อนกันที่เห็น/คอมเมนท์ได้
+        3. Private = ประกาศการเข้าถึงที่เข้มงวดที่สุด จะมีแค่ class ของตัวมันเองเท่านั้นที่มีสิทธิ์ใช้งาน เช่น โพสต์ส่วนตัวในเฟสบุ๊ค ทีมีแค่เราที่เห็น
+
+    Encapsulation(การห่อหุ้ม) => เป็นการซ่อนรายละเอียดการทำงานและข้อมูล ไม่ให้ภายนอกเห็นได้หรือแก้ไขได้
+
+    Inheritance(การสืบทอดคุณสมบัติ) => การสืบทอดคุณสมบัติจากสิ่งเดิมที่มีอยู่แล้ว คล้ายการ reuse จากสิ่งที่เคยสร้างขึ้นแล้ว 
+        เช่น Class Vehicle มี fuelAmount(); ก็จะส่งต่อ fuelAmount(); ไปยัง Class truck หรือ Class bus ได้
+
+    This & Super
+        1. this => เมื่อต้องการเรียกใช้งาน  constructor อื่นๆที่อยู่ในคลาสเดียวกัน
+        2. super => เมื่อต้องการเรียกใช้งาน constructor ของคลาสแม่ จะต้องเรียกที่บรรทัดแรกสุดของ constructor นั้นๆ
+
+    Polymorphism(การพ้องรูป) => การที่เมธอดชื่อเดียวกัน สามารถรับ argument ที่ต่างกันได้หลายรูปแบบ โดยจะถูกเรียกว่า overload method
+        คุณสมบัติการพ้องรูป คือ คุณสมบัติที่ตอบสนองต่อ method เดียวกันด้วยวิธีการต่างกันได้ และสามาถกำหนด object ได้หลายแบบ
+
+    Overloading & Overriding
+        1. Overloading => เมธอดที่ชื่อเหมือนกัน อยู่ในคลาสเดียวกัน แตกต่างแค่ parameter ผลมาจาก Polymorphism
+        2. Overriding => เมธอดของคลาสลูก(subclass) ที่มีชื่อเหมือนกับคลาสแม่(superclass) ผลมาจาก Inheritance
+    
+    ตัวอย่างการสร้าง Class และ Fields
+        public class Employee{
+            private         String          id;            
+            private         String          name;        
+            private         double          salary;        
+            (Modifier)      (Date type)     (Name)
+        }
+    
+    Method => เป็นกลไกที่กำหนดพฤติกรรมให้กับคลาส
+
+    Constructor => method พิเศษที่จะถูกส่งให้ทำงานอัตโนมัติ เมื่อมีการสร้าง Object เพื่อกำหนดค่าเริ่มต้นให้กับตัวแปร
+        (Modifier)      (Class Name)      (Parameter)
+        public          Employee          (  ){
+            ownerName = "Unassigned";
+        }
+        1. มีชื่อเหมือน class
+        2. method จะมีการคืนค่ากลับ แต่ constructor ไม่มีการคืนค่ากลับ
+        3. ประกาศการเข้าถึงแบบ public
+        4. Constructor มีชื่อซ้ำกันได้
+
+    Non-Access Modifier => ตัวแปร static ใช้กำหนดหน้า method หรือตัวแปร โดยที่แค่รู้จักที่อยู่ก็สามารถเข้าถึงข้อมูลได้
+        กำหนดหน้า method เรียก static method จะทำให้สามารถเรียกใช้งาน method โดยไม่ต้องสร้าง Object
+        กำหนดหน้า attribute เรียก static attribute จะทำให้สามารถเรียกใช้งาน attribute โดยไม่ต้องสร้าง Object
+
+    Modifier : final => เป็นคีย์เวิร์ดที่กำหนดให้กับ class, method, attribute ได้
+        final ให้ class จะทำให้คลาสนั้นไม่สามารถมี subblass ได้
+        final ให้ method จะทำให้เมธอดนั้นไม่สามารถ override method นั้นได้
+        final ให้ data หรือ attribute จะทำให้เป็นค่าคงที่
+
+    Abstract class
+        abstract => เป็นคีย์เวิร์ดที่กำหนดให้กับ class หรือ method
+        abstract class หากคลาสใดมีการประกาศ abstract method จะต้องประกาศ คลาสนั้นเป็น abstract class ด้วย
+        abstract method คือ เมธอดว่างเปล่าที่ยังไม่ได้กำหนดรายละเอียดการทำงาน โดยสามารถกำหนดการทำงานในภายหลังได้ใน class ลูก
+
+    Interface 
+        มีหลักการคล้าย abstract class เมธอดใน interface จึงเป็นเมธอดที่ว่างเปล่า
+    
+    Interface vs Abstract class ต่างกันยังไง
+        abstract => method ใน abstract class ไม่จำเป็นต้องเป็น abstract method ทั้งหมด
+        interface => ทุก method ใน interface class ต้องเป็น abstract method ทั้งหมด
