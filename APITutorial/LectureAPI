@@ -83,11 +83,11 @@
         5. นามสกุลไฟล์คือ .json
         6. MIME Type : "Application/json"
 
-    การแปลง JSON -> Object ด้วย json.parse()
-        let json1 = JSON.parse(object)
+    การแปลง JSON -> JS Object ด้วย json.parse()
+        let object1 = JSON.parse(json)
     
-    การแปลง JSON -> Object ด้วย json.parse()
-        let object1 = JSON.stringify(json)
+    การแปลง JS Object -> JSON ด้วย json.stringify()
+        let json1 = JSON.stringify(object)
 
     JSON array & object
         let user = {

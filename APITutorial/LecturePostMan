@@ -1,0 +1,47 @@
+[Postman คือ]
+    Postman : เครื่องมือสำหรับการทดสอบระบบ API
+        - ใช้ตรวจสอบว่า API ทำงานได้ตรงตามความต้องการไหม
+
+    API : Application Programming Interface
+
+[เริ่มต้นใช้งาน]
+    1. Workspace : พื้นที่สำหรับบริหารจัดการงานต่างๆ หรือแชร์การทำงานในทีม เช่น API , Collection , Environment
+    2. Collection : พื้นที่จัดเก็บกลุ่มการทำงานของ API ใน Workspace เหมือนการสร้างโฟลเดอร์
+    3. Request : การส่ง Req ไปที่ API ตาม Endpoint หรือ URL ที่กำหนด พร้อมระบุ HTTP Method ที่ใช้งาน
+
+[HTTP Method]
+    1. Get : เป็นการร้องขอข้อมูลด้วย query string คือคำข้อหลัง url/xxx?
+    2. Post : เป็นการสร้างข้อมูลเพิ่มเข้าไปใน API
+    3. Put : เป็นการอัพเดต field ทุก field
+    4. Patch : เป็นการอัพเดต field บาง field
+
+[Script และ Code Snippet]
+    Pre-request Script
+        - คำสั่งที่จะทำงานก่อนส่ง Request ไป
+    
+    Post-request Script
+        - คำสั่งทีจะทำงานหลังส่ง Request ว่าจะตอบกลับสถานะกลับมายังไง
+
+    Snippets
+        - คำสั่งสำเร็จรูปในการดึงข้อมูลของ Response
+
+[Variable]
+    ตัวแปร
+        - ชื่อที่ถูกนิยามขึ้นมาเพื่อเก็บค่าข้อมูลสำหรับใช้งานใน Postman โดยข้อมูลในตัวแปรสามารถเปลี่ยนค่าได้ มีโครงสร้างดังนี้
+            1. Variable : ชื่อตัวแปร
+            2. Initial value : ค่าเริ่มต้นในตัวแปร
+            3. Current value : ค่าปัจจุบันในตัวแปร
+    
+    Variable Scrope
+        - ขอบเขตการใช้งานตัวแปร ประกอบด้วย
+            1. Global : ตัวแปรที่ทุกส่วนเข้าถึงได้
+                - สร้างที่ Global Environment
+            2. Collection : ตัวแปรที่ทำงานเฉพาะใน Collection
+                - สร้างที่ภายในแต่ละ Collection
+            3. Environment : ตัวแปรที่ทำงานใน Environment
+                - สร้างที่ Environment 
+            4. Data : ตัวแปรที่มาจากไฟล์ด้านนอก (CSV / JSON)
+                - สร้างจากไฟล์ที่เราแนบไป
+            5. Local : ตัวแปรที่ทำงานเฉพาะใน Request
+                - สร้างภายในส่วนของ Script
+            6. Dynamic Variable : ตัวแปรที่ Postman สร้างมาให้
