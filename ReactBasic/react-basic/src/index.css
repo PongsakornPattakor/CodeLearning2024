@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply h-full w-full bg-gradient-to-br from-[#4388f0] to-[#43f0c5] bg-cover 
+  bg-no-repeat min-h-screen grid;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

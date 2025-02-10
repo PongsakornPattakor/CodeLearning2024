@@ -1,0 +1,309 @@
+[React]
+    คือ JavaScript library ที่ใช้สร้าง UI
+
+[Framework vs Library]
+    1. Framework
+        ข้อดี :
+            - มีรูปแบบชัดเจนเหมาะกับงานที่ทำเป็นทีม ที่ต้องเขียนตามรูปแบบ
+            - มีเครื่องมือพร้อมให้ใช้งาน
+        ข้อเสีย :
+            - ไม่มีความยืดหยุ่น
+            - ปรับปรุงแก้ไขการทำงานยาก
+    2. Library
+        ข้อดี : 
+            - เลือกเครื่องมือมาใช้ในระบบเราได้เลย
+            - มีความยืดหยุ่นสูง
+        ข้อเสีย :
+            - ต้องทำทุกอย่างด้วยตัวเอง
+[แนวคิด React]
+    React จะใช้สร้างเว็บออกมาเป็นส่วนย่อยหลายๆส่วนได้ ซึ่งเรียกส่วนย่อยว่า "Component" เพื่อให้ง่ายต่อการจัดการ แล้วค่อยนำส่วนย่อยมาประกอบรวมกัน เช่น Navbar , Sidebar , Main
+    สำหรับการสร้าง Component จะมีรูปแบบการเขียนคล้ายกับ HTML แต่ React จะใช้ส่วนที่เรียกว่า JSX ในการเขียน ซึ่งการเขียน JSX นั้น คือการเขียนในไฟล์ JavaScript
+
+    Imperative programming & Declarative programming
+        ยกตัวอย่างการสร้างปุ่ม
+        1. Imperative
+                const btnEl = document.createElement('button')
+                btnEl.innerHTML = 'Send data'
+                document.body.appenChild(btn)
+        2. Declarative
+                <button> Send data </button>
+    
+    Component : ส่วนประกอบย่อยต่างๆ คล้ายการสร้าง tag ขึ้นมาใช้เองเช่น <First/>
+    State : ข้อมูลที่อยู่ใน Component แต่ละตัว
+    Props : ข้อมูลที่ถูกส่งจาก Component (แนวคิดมาจากการกำหนด Attribute ใน HTML)
+
+[โครสร้างโปรเจค]
+    1. node_modules : เก็บโมดูลหรือไลบรารี่ที่ทำงานภายในโปรเจคเรา
+    2. public : เก็บไฟล์ public เช่น รูป , index.html
+    3. src : สำหรับเก็บ Component หรือโครงสร้างของแอพ
+    4. package.json : เก็บข้อมูลต่างๆรวมถึง package ที่จะใช้ทำงานภายในโปรเจค
+
+    ไฟล์สำคัญ ได้แก่
+    1. /public/index.html
+        - เป็นไฟล์ที่ใช้สำหรับแสดงผลข้อมูลบน browser จะแสดงผลบนส่วนพื้นที่ <body> <div id="root"> </div> </body>
+    2. /src/App.js
+        - เป็นไฟล์หลักในการรันแอพขึ้นมา โดยนำส่วนประกอบต่างๆมาประกอบ แล้วนำไปแสดงผล
+    3. /src/index.js
+        - เป็นไฟล์สำหรับเชื่อมการทำงานระหว่าง App.js และ index.js
+
+[ReactDOM Render HTML]
+    - เมื่อหน้าเว็บโหลดเสร็จแล้ว web browser จะสร้าง DOM ของหน้านั้นขึ้นมา 
+    - ReactDOM เป็นไลบรารี่เหมือนกับ React ทำหน้าที่เฉพาะในการจัดการกับ DOM และ ใช้เฉพาะกับ React เท่านั้น
+    - คำสั่ง ReactDOM.render() จะทำการสร้าง DOM (Virtual DOM) แล้วนำโครงสร้างดังกล่าวใส่ลงไปยัง DOM จริงๆ (Real DOM) ซึ่งเป็นวิธีในการ render JSX ออกมาแสดงผลทางหน้าจอเช่น
+        
+        ReactDOM.render(<p>Hello World</p>,document.getElementById('root'));
+        
+        หรือ
+        
+        const data = (
+            <div>
+                <h1>Pongsakorn</h>
+            </div>
+        );
+        ReactDOM.render(data,document.getElementById('root'));
+
+[Virtual DOM]
+    - Virtual DOM มีลักษณะคล้ายกับ DOM ใน html โดย Virtual DOM จะคัดลอก DOM จริง มาเก็บลง Memmory 
+    - ถ้ามีการเปลี่ยนแปลงเกิดขึ้นที่ Component ก็จะอัพเดทเฉพา Component ที่เปลี่ยนแปลงเท่านั้น โดยไม่จำเป็นต้องอัพเดท DOM ใหม่หมดทั้งหน้า ทำให้ทำงานได้เร็วขึ้น
+    - ถ้าใช้ DOM จริงอย่างเดียว จะต้องทำการ Refresh ทั้งหน้าเพื่ออัพเดทหน้าเว็บที่เปลี่ยนไป
+
+[การสร้าง Component]
+    - ใน React การจะสร้างหน้าเว็บ จะใช้ Component มาประกอบกัน โดยใช้ภาษา JavaScript แทนที่จะเขียนใน HTML
+    - ใช้ส่วนที่เรียกว่า JSX (JavaScript XML) ที่ทำให้ใส่ HTML เข้าไปเขียนใน JavaScript ได้ 
+    - ดังนั้น React คือการสร้างหน้าเว็บด้วยภาษา JavaScript ที่มีการแทรก HTML แทรกอยู่ก็คือ JSX
+
+    รูปแบบการสร้าง มี 2 รูปแบบ
+    1. Functional Component
+    2. Class Component
+
+    1. Functional Component
+        - สร้างแบบ Component ที่ง่ายที่สุด คือ เป็นรูปแบบฟังก์ชั่น โดยสร้างฟังก์ขั่นและ Return HTML ออมา โดยกำหนดให้อักษรตัวแรกของฟังก์ชั่นเป็นพิมพ์ใหญ่เสมอ เช่น
+            function HelloComponent(){
+                return <h1>สวัสดี React</h1>
+            }
+        export default HelloComponent
+
+    2. Class Component
+        - สร้าง Class ที่ extends มาจาก React.Component และ Return HTML ออกมา แต่ถ้าสร้างแบบ Class จะมีความสามารถในการใช้งานมากกว่าแบบ Functional
+            class HelloComponent extends React.Component{
+                render(){
+                    return <h1>สวัสดี React</h1>;
+                }
+            }
+
+[React JSX]
+    รูปแบบการเขียน 
+    1. สามารถเขียนใน tag ได้ ทั้ง semantic tag , React.Fragment, <> เปล่าๆ โดยการเขียนในขอบเขตของ return
+    2. การใส่ class style ใน JSX จะมีการกำหนด className แทน class เนื่องจากคำว่า class เป็น keyword
+
+    Dynamic data
+        - คือการกำหนดข้อมูลใน Component ใน {} เช่น
+            const Info = () =>{
+                const age = 20;
+                return <li> อายุ : {age} </li>
+            }
+
+[Props]
+    React Props
+        - Props (Properties) : คือตัวแปรที่สามารถส่งเข้าไปใน Component ได้ ผ่านการกำหนด Attribute ส่งผลให้ Component แต่ละตัวสามารถรับค่าจากด้านนอกเข้าไปทำงานได้
+            <Component Props=ค่าทีจะกำหนด> </Component>
+        - การเรียกใช้ ก็จะเรียกใช้ใน Component นั้นๆ เช่น props.money , props.salary แต่การเขียนแบบนี้ไม่ค่อยนิยมในปัจจุบัน
+
+    Destructuring Props
+        - ต้องทำการแปลง object มาเก็บในตัวแปรก่อน เพื่อความสะดวกในการเขียนและอ่านโค้ด
+            const {title,amount} = props
+            return (
+                <>
+                <li className="bg-white/30 rounded-md backdrop-blur- shadow-lg p-[30px] my-2 flex justify-between">
+                    {title}
+                    <span>{amount}</span>
+                </li>
+                </>
+            );
+
+    Props & Array map
+        - ใช้ในกรณีที่ ถ้ามีการกำหนดค่า props มากๆ แล้วต้องการ loop มาแสดงผลโดยไม่ต้องมานั่งเขียนเอง
+            const Transaction = () => {
+            const data = [
+                { title: "เงินเดือน", amount: "30000" },
+                { title: "ค่าซื้อเกม", amount: "3000" },
+                { title: "ค่าเที่ยว", amount: "5000" },
+                { title: "ค่าน้ำมัน", amount: "2500" },
+                { title: "ค่าบัตรเครดิต", amount: "4000" },
+            ];
+            return (
+                <ul className="text-center flex flex-col w-[50vw] justify-self-center">
+                {data.map((item) => {
+                    return <Item title={item.title} amount={item.amount} />;
+                })}
+                </ul>
+            );
+            };
+
+    Props & Spread operator
+        - ในกรณีที่มีการเรียกใช้ props ซ้ำๆแล้วมีชื่อเหมือนกัน เราสามารถยุบคำสั่งได้ เช่น
+            const Transaction = () => {
+            const data = [
+                { title: "เงินเดือน", amount: "30000" },
+                { title: "ค่าซื้อเกม", amount: "3000" },
+                { title: "ค่าเที่ยว", amount: "5000" },
+                { title: "ค่าน้ำมัน", amount: "2500" },
+                { title: "ค่าบัตรเครดิต", amount: "4000" },
+            ];
+            return (
+                <ul className="text-center flex flex-col w-[50vw] justify-self-center">
+                {data.map((item) => {
+                    return <Item {...item}/>;
+                })}
+                </ul>
+            );
+            };
+
+    Keys
+        - เป็น Properties ที่อยู่ใน JSX โดย Keys จะมีค่าไม่ซ้ำกัน กำหนดขึ้นเพื่อให้ React นำไปเช็คว่ามี Component ใดบ้างที่เปลี่ยนแปลงค่าไปในการ Render หน้าเว็บ
+            const Transaction = () => {
+            const data = [
+                { id: 1, title: "เงินเดือน", amount: "30000" },
+                { id: 2, title: "ค่าซื้อเกม", amount: "3000" },
+                { id: 3, title: "ค่าเที่ยว", amount: "5000" },
+                { id: 4, title: "ค่าน้ำมัน", amount: "2500" },
+                { id: 5, title: "ค่าบัตรเครดิต", amount: "4000" },
+            ];
+            return (
+                <ul className="text-center flex flex-col w-[50vw] justify-self-center">
+                {data.map((item) => {
+                    return <Item {...item} key={item.id} />;
+                })}
+                </ul>
+            );
+            };
+
+    PropsType (Validation)
+        - เป็นการประกาศชนิดของ Props ที่ส่งเข้าไปทำงานใน Component เช่น กำหนดให้ค่า Props ต้องมีค่าทุกครั้ง ห้ามเป็นค่าว่าง
+            Item.propTypes = {
+            title: PropTypes.string,
+            amount: PropTypes.number,
+            };
+
+[React Hook]
+    State
+        - ตัวแปรที่เก็บข้อมูลภายใน Component คล้ายๆกับ Props แต่การใช้งาน Props นั้น ข้อมูลจะไม่สามารถเปลี่ยนแปลงค่าได้ แต่ State ทำได้
+        - ถ้าต้องการให้ข้อมูลในแอพสามารถเปลี่ยนค่าได้ จะต้องใช้ State
+
+    Stateless vs Stateful
+        - Stateless : State ที่ไม่มีการเปลี่ยนแปลงค่า
+        - Stateful : State ที่มีการเปลี่ยนแปลงค่า 
+        
+    Hook : เป็นฟีเจอร์ที่มีอยู่ใน React v.16.8 ขึ้นไป ใช้สำหรับยการจัดการเกี่ยวกับ State โดยที่ไม่ต้องเขียนใน Class Component แต่จะเขียนใน Functional Component แทน
+    
+    การใช้งาน
+        1. เขียนใน Functional Component
+        2. เขียนในส่วนของ Top-level ของ function (อย่าเขียนใน Condition , Loop , Nested Function )
+
+    ตัวอย่าง React Hook
+    1. useState
+    2. useEffect
+    3. useReducer
+    4. useContext
+    5. useMemo
+    6. useCallBack
+
+    (useState)
+        import{useState} from 'react'
+        [ชื่อ state , ฟังก์ชั่นที่ใช้เปลี่ยนแปลงข้อมูลใน State] = useState(ค่าเริ่มต้นของ State)
+        
+        ตัวอย่าง
+        const[name,setName] = useState('Pongsakorn')
+        const[age,setAge] useState(30)
+    
+    Children to Parent (Bottom-Up)
+        - อยากให้ "Component ลูก" ส่งข้อมูลกลับไปหา "Component แม่"
+
+    (useEffect)
+        - คือผลกระทบที่เกิดขึ้นภายใน Component ใช้เพื่อต้องการทราบว่าเกิดการอัพเดทหรือเปลี่ยนแปลงอะไรขึ้นบ้างภายใน Component จนส่งผลให้ Component เกิดการ Render ใหม่
+        - สาเหตุหลักที่ Component เกิดการ Render ใหม่ มากจากการเปลี่ยนแปลงค่าใน Props และ State
+        - การใช้งานจึงนำมาใช้เพื่อตรวจสอบการเปลี่ยนแปลงค่า
+
+        import{useEffect} from 'react'
+        const [formValid, setFormValid] = useState(false);
+        useEffect(() => {
+            if (เงื่อนไขที่จะให้เกิดการตรวจจับการเปลี่ยนแปลง) {
+            setFormValid(true);
+        }
+
+        console.log("Call useEffect"); 
+        }, [amount]);
+
+    Context API (Global State)
+        - ในกรณีที่ต้องการให้แอพ มีข้อมูลกลาง และอยากให้มีการแชร์ข้อมูลเกิดขึ้นใน Component เข้าถึงข้อมูลชุดเดียวกันได้ โดยไม่ต้องใช้รูปแบบส่งจาก แม่ -> ลูก
+        Context API มีองค์ประกอบ 2 ส่วน :
+        1. Provider (Parent) : ดูแลและจัดการข้อมูล แล้วนำไปส่ง Consumer
+        2. Consumer (Children) : นำข้อมูลที่ได้จาก Provider ไปสร้างหรือแสดงใน Component
+            import { createContext } from "react";
+            const DataContext = createContext();
+            export default DataContext;
+            
+            <DataContext.Provider value={ค่าที่จะกระจายให้ลูก}> </DataContext.Provider>
+            <DataContext.Consumer>{(value)=> <p>{value}</p>} </DataContext.Consumer>
+
+    (useContext)
+        import { useContext } from "react";
+        const Report = () => {
+            const name = useContext(ไฟล์ที่เขียน Context);
+            return <h1 className="text-3xl text-center">สวัสดี : {name}</h1>;
+        };
+
+    Context API (Multiple value)
+        - เป็นการส่งข้อมูลไปกับ .Provider หลายๆค่า เช่น ส่งไปเป็น object
+
+    (useReducer)
+        - เป็นการจัดการ State ในรูปแบบของ Rudux
+        - โดยทั่วไป state สามารถอ่านค่าได้อย่างเดียว ถ้าต้องการเปลี่ยนแปลงค่า state มากกว่า 1 รูปแบบ โดยการกำหนดรูปแบบการกระทำที่เกิดขึ้นกับ state ของเราผ่านส่วนที่เรียกว่า Action
+        - หากจะทำการเปลี่ยนแปลงค่าใน state ต้องใช้ useReducer
+        - Case ต่างๆใน reducer จะเรียกว่า action
+        - Dispatch : ตัวเรียกใช้ action
+        
+        import {useReducer} from "react";
+        const [count, setCount] = useState(0);
+        const reducer = (state, action) => {
+            switch (action.type) {
+            case "Add":
+                return state + action.payload;
+            case "Sub":
+                return state - action.payload;
+            case "Clear":
+                return 0;
+            }
+        };
+        const [result, dispatch] = useReducer(reducer, count); // จะส่งกลับมา 2 ค่า
+        return (
+            {showReport && <Report />} //พื้นที่สำหรับแสดง Report 
+            <button onclick={()=>dispatch({type:Add,payload:10})}> เพิ่มค่าทีละ 10 </button> 
+        )
+
+[React Router]
+    - การพัฒนาแอพด้วย React ประกอบด้วยการแสดงผลมากกว่า 1 หน้าจอ
+    - การที่จะทำให้ผู้ใช้งานไปยังส่วนการแสดงผลต่างๆที่เกิดขึ้นจากการใช้งาน Component ในแอพ จะใช้ส่วนที่เรียกว่า Route(การสร้างเส้นทาง)
+    - ต้องติดตั้ง npm install react-router-dom
+        1. สร้าง Router / Route เพื่อกำหนดเส้นทางการเข้าถึง Component ของหารกำหนด Path
+        2. สร้าง Switch ในการเปลี่ยนเส้นทางการเข้าถึง Component
+        3. กำหนด Link เพื่อเชื่อมโยง Path กับ Component
+        
+    import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+    return (
+        <Router> // ต้องสร้าง Router มาครอบ
+          <div className="text-center">
+            <ul>
+              <li>
+                <Link to="">ข้อมูลบัญชี</Link>
+              </li>
+              <li>
+                <Link to="">บันทึกข้อมูล</Link>
+              </li>
+            </ul>
+            <Routes> // เป็นการสลับหน้าจอที่เราต้องการให้แสดง เมื่อก่อนเป็น <Switch>
+
+            </ฑ> 
+          </div>
+        </Router>
+    )
