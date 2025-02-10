@@ -115,4 +115,4 @@
     - git pull
 
 [Git clone]
-    - git clone
+    - git clone <url ที่จะโคลน>
